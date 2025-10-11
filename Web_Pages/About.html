@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About GTTC</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #003366;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 2rem;
+            color: #003366;
+            margin: 30px 0 20px;
+            text-align: center;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #e8491d;
+            margin: 10px auto;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: #003366;
+            margin: 20px 0 10px;
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .section {
+            padding: 40px 0;
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 30px auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #003366;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid #e8491d;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -10px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Government Tool Room and Training Centre Magadi</h1>
+            
+        </div>
+    </header>
+
+    <!-- About GTTC Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>About GTTC</h2>
+            <h3>Introduction</h3>
+            <p>GTTC was established in 1972 at Bangalore with the participation of the Karnataka State Government, in collaboration with the Government of Denmark under the Bilateral Development Cooperation Agreement. The excellent performance of GTTC Bangalore, proactive Government of Karnataka which saw the need for expansion, got second unit of GTTC started in 1992 with DANIDA assistance.</p>
+            <p>Proliferation of technology for development of the industries with supply of skilled manpower is the key to meet the needs of the global requirement. With this Government of Karnataka encouraged GTTC to start 10 more sub-centres to train in the area of tool and die making in various parts of Karnataka.</p>
+            
+            <h3>GTTC Today</h3>
+            <p>GTTC is an autonomous society, and a recognised Scientific and Research Organisation by the Government of India. Govt. Tool Room and Training Centre (GTTC), is serving industry by way of precision tooling and providing in well trained craftsmen the area of tool and die making.</p>
+            <p>Today, the GTTC has acquired mastery in Mould and Die making technology and have blossomed into an epitome of precision and quality in the development and manufacture of sophisticated moulds, dies and tools.</p>
+            <p>Fully aware of the rapid advancement in technology the world over, the GTTC is periodically adding new technologies to the existing set of advanced equipment like CAD / CAM, CNC machines for tooling, Precision Components, Laser for Industries, Rapid prototyping, vacuum casting etc.</p>
+            
+            <h3>Vision</h3>
+            <p><strong>To emerge as an International Centre of Excellence in Training production, R & D and Consultancy Services related to Manufacturing Technology – from Concept to End Product</strong></p>
+            
+            <h3>Mission</h3>
+            <p>To continuously improve the skills in Training, Develop Innovative Process to Optimise Product ionisation using Latest Facilities / Methodologies, Trends, Techniques to Meet all Stake Holder Needs and be the Leader.</p>
+            
+            <h3>Future Focus</h3>
+            <p>GTTC is concentrating on the Integrated Development of the related segments of industries by way of providing international quality tools, trained personnel and consultancy in tooling and related areas. In future, the focus would be more on turnkey projects in Tooling, Aerospace components & their assemblies, and also to support the development of small and medium scale enterprises.</p>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="section">
+        <div class="container">
+            <h2>Our History</h2>
+            <div class="timeline">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>1972</h3>
+                        <p>GTTC was established in Bangalore with participation of Karnataka State Government and Government of Denmark</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>1992</h3>
+                        <p>Second unit of GTTC started with DANIDA assistance due to excellent performance and need for expansion</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>2000s</h3>
+                        <p>Government of Karnataka encouraged GTTC to start 10 more sub-centres across Karnataka</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>2023</h3>
+                        <p>GTTC Magadi was established offering four new diploma courses</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GTTC Magadi Section -->
+    <section id="magadi" class="section">
+        <div class="container">
+            <h2>GTTC Magadi</h2>
+            <h3>Introduction</h3>
+            <p>Government tool room and training center Magadi was established in the year of 2023 in our institute we are offering four courses which are:</p>
+            <ul>
+                <li>Diploma in Artificial Intelligence and Machine Learning (DAIRML)</li>
+                <li>Diploma in Tool and Die Making (DTDM)</li>
+                <li>Diploma in Mechatronics (DMCH)</li>
+                <li>Diploma in Electrical & Electronics Engineering (DEEE)</li>
+            </ul>
+            <p>The course period of 3+1 years - 3 years in the institute training and 1 year compulsory in respective industry training. Next all the trainees can go to higher study with lateral entry. Trainees are trained based on industry culture and skills to survive in the industry.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Government Tool Room and Training Centre (GTTC). All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

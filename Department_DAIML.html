@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificial Intelligence and Machine Learning GTTC Magadi College</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8fafc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Social Media Sidebar */
+        .social-sidebar {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-100%);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .social-link.facebook {
+            background: #3b5998;
+        }
+
+        .social-link.instagram {
+            background: #e4405f;
+        }
+
+        .social-link.twitter {
+            background: #1da1f2;
+        }
+
+        .social-link.linkedin {
+            background: #0077b5;
+        }
+
+        .social-link.youtube {
+            background: #ff0000;
+        }
+
+        .social-link.whatsapp {
+            background: #25d366;
+        }
+
+        .social-link:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 45vh;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.pexels.com/photos/574077/pexels-photo-574077.jpeg?auto=compress&cs=tinysrgb&w=1920&h=1080') center/cover;
+            opacity: 0.3;
+            z-index: -1;
+        }
+
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .breadcrumb {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .typing-text {
+            display: inline-block;
+        }
+
+        .cursor {
+            animation: blink 1s infinite;
+            color: #f97316;
+        }
+
+        @keyframes blink {
+
+            0%,
+            50% {
+                opacity: 1;
+            }
+
+            51%,
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            position: sticky;
+            top: 20px;
+        }
+
+        .sidebar-menu {
+            padding: 0;
+        }
+
+        .sidebar-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .sidebar-item:last-child {
+            border-bottom: none;
+        }
+
+        .sidebar-item i {
+            margin-right: 0.75rem;
+            color: #6b7280;
+            width: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar-item span {
+            font-weight: 500;
+            color: #374151;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar-item:hover,
+        .sidebar-item.active {
+            background: #f97316;
+            color: white;
+        }
+
+        .sidebar-item:hover i,
+        .sidebar-item.active i,
+        .sidebar-item:hover span,
+        .sidebar-item.active span {
+            color: white;
+        }
+
+        /* Content Area */
+        .content-area {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .content-card {
+            padding: 2rem;
+            min-height: 500px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f97316;
+        }
+
+        .department-content {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        .content-paragraph {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+            color: #4b5563;
+            text-align: justify;
+        }
+
+        /* HOD Profile Styles */
+        .hod-profile {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+
+        .hod-image {
+            width: 200px;
+            height: 250px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .hod-details h3 {
+            color: #1f2937;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .hod-details .position {
+            color: #f97316;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hod-details .contact-info {
+            margin-bottom: 1rem;
+        }
+
+        .hod-details .contact-info p {
+            margin-bottom: 0.5rem;
+            color: #6b7280;
+        }
+
+        .hod-message {
+            margin-top: 2rem;
+        }
+
+        .hod-message h4 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Faculty Grid Styles */
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .faculty-card {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .faculty-image {
+            width: 120px;
+            height: 150px;
+            border-radius: 8px;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            display: block;
+        }
+
+        .faculty-card h4 {
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .faculty-card .position {
+            color: #f97316;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .faculty-card .email {
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        /* Contact Form Styles */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-form {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #f97316;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #f97316;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: #ea580c;
+        }
+
+        .contact-info-section h4 {
+            color: #1f2937;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-info-section .contact-item {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+
+        .contact-item h5 {
+            color: #f97316;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            color: #6b7280;
+            margin-bottom: 0.25rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .content-wrapper {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .sidebar {
+                position: static;
+                order: 2;
+            }
+
+            .content-area {
+                order: 1;
+            }
+
+            .social-sidebar {
+                display: none;
+            }
+
+            .hod-profile {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .faculty-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.5rem;
+            }
+
+            .content-card {
+                padding: 1.5rem;
+            }
+
+            .faculty-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Social Media Sidebar -->
+    <div class="social-sidebar">
+        <a href="#" class="social-link facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social-link instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-link twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-link linkedin"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" class="social-link youtube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="breadcrumb">
+                <a href="Main_Page.html" style="text-decoration: none; color: aliceblue;"><span>Home</span></a> >
+                <span>Artificial Intelligence and Machine Learning</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="typing-text">Artificial Intelligence and Machine Learning</span>
+                <span class="cursor">|</span>
+            </h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="content-wrapper">
+                <!-- Sidebar Navigation -->
+                <aside class="sidebar">
+                    <div class="sidebar-menu">
+                        <div class="sidebar-item active" data-section="home">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </div>
+                        
+                        
+                        <div class="sidebar-item" data-section="hod">
+                            <i class="fas fa-user-tie"></i>
+                            <span>HoD</span>
+                        </div>
+                        <div class="sidebar-item" data-section="faculty">
+                            <i class="fas fa-users"></i>
+                            <span>Faculty</span>
+                        </div>
+                        
+                        <div class="sidebar-item" data-section="achievements">
+                            <i class="fas fa-trophy"></i>
+                            <span>Achievements</span>
+                        </div>
+                        
+                        
+                        <div class="sidebar-item" data-section="laboratories">
+                            <i class="fas fa-flask"></i>
+                            <span>Laboratories</span>
+                        </div>
+                        <div class="sidebar-item" data-section="certificates">
+                            <i class="fas fa-certificate"></i>
+                            <span>Certificate Courses</span>
+                        </div>
+                        <div class="sidebar-item" data-section="placements">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Placements</span>
+                        </div>
+                        
+                        <div class="sidebar-item" data-section="contact">
+                            <i class="fas fa-phone"></i>
+                            <span>Contact</span>
+                        </div>
+                        
+                    </div>
+                </aside>
+
+                <!-- Main Content Area -->
+                <div class="content-area">
+                    <div class="content-card" id="contentCard">
+                        <!-- Content will be dynamically loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const sidebarItems = document.querySelectorAll('.sidebar-item');
+
+            // Sidebar navigation
+            sidebarItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    sidebarItems.forEach(el => el.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Animate content change
+                    const contentArea = document.querySelector('.content-area');
+                    contentArea.style.opacity = '0';
+                    contentArea.style.transform = 'translateY(20px)';
+
+                    setTimeout(() => {
+                        const section = this.getAttribute('data-section');
+                        updateContent(section);
+                        contentArea.style.opacity = '1';
+                        contentArea.style.transform = 'translateY(0)';
+                    }, 300);
+                });
+            });
+
+            // Initialize with home content
+            updateContent('home');
+
+            // Typing animation
+            const typingText = document.querySelector('.typing-text');
+            const text = 'Artificial Intelligence and Machine Learning';
+            let index = 0;
+
+            function typeText() {
+                if (index < text.length) {
+                    typingText.textContent = text.substring(0, index + 1);
+                    index++;
+                    setTimeout(typeText, 100);
+                }
+            }
+
+            // Start typing animation after page load
+            setTimeout(typeText, 1000);
+
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Social media links hover effect
+            document.querySelectorAll('.social-link').forEach(link => {
+                link.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateX(5px) scale(1.1)';
+                });
+
+                link.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateX(0) scale(1)';
+                });
+            });
+        });
+
+        // Function to update content based on sidebar selection
+        function updateContent(section) {
+            const contentCard = document.querySelector('#contentCard');
+            const content = getContentForSection(section);
+            contentCard.innerHTML = content;
+
+            // Re-observe new content for animations
+            setTimeout(() => {
+                document.querySelectorAll('.content-paragraph, .faculty-card').forEach(element => {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(20px)';
+                    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
+                    setTimeout(() => {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, 100);
+                });
+            }, 100);
+
+            // Add form submission handler for contact form
+            if (section === 'contact') {
+                const contactForm = document.querySelector('#contactForm');
+                if (contactForm) {
+                    contactForm.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        alert('Thank you for your message! We will get back to you soon.');
+                        this.reset();
+                    });
+                }
+            }
+        }
+
+        // Content data for different sections
+        function getContentForSection(section) {
+            const contentData = {
+                'home': `
+            
+
+    <div class="container">
+        <div class="section">
+            <h2 class="section-title">Introduction</h2>
+            <p>The Diploma in Artificial Intelligence and Machine Learning (DAIML) is designed to provide students with a solid foundation in AI and ML concepts, techniques, and tools. This program equips students with the necessary knowledge and practical skills required to implement AI and ML algorithms in real-world applications, which are becoming increasingly important across industries such as finance, healthcare, technology, and retail.</p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Job Placement Opportunities</h2>
+            <p>Graduates of the DAIML program can explore a wide range of career opportunities in various sectors. Some of the common job roles and industries include:</p>
+            <ul>
+                <li>AI Engineer</li>
+                <li>Machine Learning Engineer</li>
+                <li>Data Scientist</li>
+                <li>Natural Language Processing (NLP) Specialist</li>
+                <li>Robotics Engineer</li>
+                <li>AI Research Scientist</li>
+                <li>Software Developer specializing in AI/ML</li>
+                <li>AI Consultant in industries like finance, healthcare, and retail</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Salary Expectations</h2>
+            <p>Salaries for graduates with a diploma in AI and ML vary based on the job role, experience, and location. On average, the salary ranges are as follows:</p>
+            <ul>
+		<li><strong>Implynt Training:</strong> ₹15,000 to ₹20,000 per month</li>
+                <li><strong>Entry-Level Positions:</strong> ₹4,00,000 to ₹8,00,000 per annum</li>
+                <li><strong>Mid-Level Positions:</strong> ₹8,00,000 to ₹15,00,000 per annum</li>
+                <li><strong>Experienced Professionals:</strong> ₹15,00,000 to ₹25,00,000 per annum or higher</li>
+            </ul>
+        </div>
+    </div>
+
+        `,
+             
+                'hod': `
+            <h2 class="section-title">Head of Department</h2>
+            <div class="department-content">
+                <div class="hod-profile">
+                    <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=400&h=500&fit=crop" alt="Mr. Nikhil B M" class="hod-image">
+                    <div class="hod-details">
+                        <h3>Mr. Nikhil B M</h3>
+                        <p class="position">HOD of DAIML</p>
+                        <div class="contact-info">
+                            <p><i class="fas fa-phone"></i> +91 6363784679</p>
+                            <p><i class="fas fa-envelope"></i>nikhilbongale156@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hod-message">
+                    <h4>HoD Message</h4>
+                    <p class="content-paragraph">
+                        Dr. Raghu Kumar Lingamalli is working as Associate Professor in the department of CSE, K G Reddy College of Engineering and Technology at, Hyderabad, India. He received his Ph.D in Computer Science and Engineering at the OPJS University in 2023. He received his Master of Technology (M.Tech) from Jawaharlal Nehru Technological University, Hyderabad, India in 2009. He received his Bachelor of Technology (B.Tech) from Jawaharlal Nehru Technological University, Hyderabad, India in 2006.
+                    </p>
+                    <p class="content-paragraph">
+                        Department of CSE has started its UG program B. Tech-CSE in the year 2008 with an intake of 60. At present the department has expanded to 300 students. The intellectual ambiance in CSE Department is conducive to the holistic development of the students with well-equipped labs. The B.Tech-CSE program was first time accredited during 2024 consecutively. CSE department is a recognized research center under JNTU Hyderabad.
+                    </p>
+                    <p class="content-paragraph">
+                        Department encourages the use of open-source software. The placement records of the CSE department are so phenomenal that they will blow your mind. Our placement record has been consistent with the placement record of more than 90% of students placed every year.
+                    </p>
+                </div>
+            </div>
+        `,
+                'faculty': `
+            <h2 class="section-title">Faculty Members</h2>
+            <div class="department-content">
+                <p class="content-paragraph">
+                    The Department of Computer Science and Engineering is proud to have a team of highly qualified and experienced faculty members who are committed to providing excellent education and mentorship to our students.
+                </p>
+                <div class="faculty-grid">
+                    <div class="faculty-card">
+                        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=350&fit=crop" alt="Dr. S SAI" class="faculty-image">
+                        <h4>Dr. S SAI SATYANARAYANA</h4>
+                        <p class="position">HoD & Associate Professor</p>
+                        <p class="email">satyanarayana.s@kgr.ac.in</p>
+                    </div>
+                    <div class="faculty-card">
+                        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=350&fit=crop" alt="Dr. Raghu Kumar L" class="faculty-image">
+                        <h4>Dr. Raghu Kumar L</h4>
+                        <p class="position">Associate Professor</p>
+                        <p class="email">drraghukumar@kgr.ac.in</p>
+                    </div>
+                    <div class="faculty-card">
+                        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=350&fit=crop" alt="Dr. Shiva Shankar" class="faculty-image">
+                        <h4>Dr. Shiva Shankar Subramanian</h4>
+                        <p class="position">Associate Professor</p>
+                        <p class="email">drshivashankar@kgr.ac.in</p>
+                    </div>
+                    <div class="faculty-card">
+                        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=350&fit=crop" alt="Dr. B Hari Krishna" class="faculty-image">
+                        <h4>Dr. B Hari Krishna</h4>
+                        <p class="position">Associate Professor</p>
+                        <p class="email">harkrishna@kgr.ac.in</p>
+                    </div>
+                    <div class="faculty-card">
+                        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=350&fit=crop" alt="Dr. T V V Pavan Kumar" class="faculty-image">
+                        <h4>Dr. T V V Pavan Kumar</h4>
+                        <p class="position">Professor</p>
+                        <p class="email">tvvpavan@kgr.ac.in</p>
+                    </div>
+                    <div class="faculty-card">
+                        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=350&fit=crop" alt="Dr. Srinivas Mekala" class="faculty-image">
+                        <h4>Dr. Srinivas Mekala</h4>
+                        <p class="position">Associate Professor</p>
+                        <p class="email">srinivasmekala@kgr.ac.in</p>
+                    </div>
+                    <div class="faculty-card">
+                        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=350&fit=crop" alt="Dr. Athak Ahmed N A" class="faculty-image">
+                        <h4>Dr. Athak Ahmed N A</h4>
+                        <p class="position">Associate Professor</p>
+                        <p class="email">athakahmed@kgr.ac.in</p>
+                    </div>
+                    <div class="faculty-card">
+                        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=350&fit=crop" alt="Dr. Surendra Tripathi" class="faculty-image">
+                        <h4>Dr. Surendra Tripathi</h4>
+                        <p class="position">Assistant Professor</p>
+                        <p class="email">surendratripathi@kgr.ac.in</p>
+                    </div>
+                    <div class="faculty-card">
+                        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=350&fit=crop" alt="Mrs. K Sapana Rani" class="faculty-image">
+                        <h4>Mrs. K Sapana Rani</h4>
+                        <p class="position">Assistant Professor</p>
+                        <p class="email">sapanarani@kgr.ac.in</p>
+                    </div>
+                    <div class="faculty-card">
+                        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=350&fit=crop" alt="Mr. K Sai Krishna" class="faculty-image">
+                        <h4>Mr. K Sai Krishna</h4>
+                        <p class="position">Assistant Professor</p>
+                        <p class="email">saikrishna@kgr.ac.in</p>
+                    </div>
+                    <div class="faculty-card">
+                        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=350&fit=crop" alt="Mr. Ahmed Mohiuddin" class="faculty-image">
+                        <h4>Mr. Ahmed Mohiuddin</h4>
+                        <p class="position">Assistant Professor</p>
+                        <p class="email">ahmedmohiuddin@kgr.ac.in</p>
+                    </div>
+                    <div class="faculty-card">
+                        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=350&fit=crop" alt="Ms. Nasra Fatima" class="faculty-image">
+                        <h4>Ms. Nasra Fatima</h4>
+                        <p class="position">Assistant Professor</p>
+                        <p class="email">nasrafatima@kgr.ac.in</p>
+                    </div>
+                </div>
+            </div>
+        `,
+                'contact': `
+            <h2 class="section-title">Contact Us</h2>
+            <div class="department-content">
+                <div class="contact-container">
+                    <div class="contact-form">
+                        <h3 style="color: #1f2937; margin-bottom: 1.5rem;">Send us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Send Your Message</button>
+                        </form>
+                    </div>
+                    <div class="contact-info-section">
+                        <h4>Get in Touch</h4>
+                        <div class="contact-item">
+                            <h5>Department Office</h5>
+                            <p><i class="fas fa-map-marker-alt"></i> Computer Science & Engineering Department</p>
+                            <p>KG Reddy College of Engineering & Technology</p>
+                            <p>Hyderabad, Telangana, India</p>
+                        </div>
+                        <div class="contact-item">
+                            <h5>Head of Department</h5>
+                            <p><i class="fas fa-user"></i> Dr. Raghu Kumar L</p>
+                            <p><i class="fas fa-phone"></i> +91 9490244991</p>
+                            <p><i class="fas fa-envelope"></i> hod.cse@kgr.ac.in</p>
+                        </div>
+                        <div class="contact-item">
+                            <h5>Office Hours</h5>
+                            <p><i class="fas fa-clock"></i> Monday - Friday: 9:00 AM - 5:00 PM</p>
+                            <p><i class="fas fa-clock"></i> Saturday: 9:00 AM - 1:00 PM</p>
+                            <p><i class="fas fa-clock"></i> Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `,
+                'laboratories': `
+            <h2 class="section-title">Laboratories</h2>
+            <div class="department-content">
+                <p class="content-paragraph">
+                    The Computer Science and Engineering department is equipped with state-of-the-art laboratories that provide hands-on experience to students in various domains of computer science.
+                </p>
+                <p class="content-paragraph">
+                    <strong>Programming Laboratory:</strong> Equipped with high-end computers and latest software development tools for programming in various languages including C, C++, Java, Python, and more.
+                </p>
+                <p class="content-paragraph">
+                    <strong>Data Structures and Algorithms Lab:</strong> Dedicated facility for implementing and analyzing various data structures and algorithms with performance optimization tools.
+                </p>
+                <p class="content-paragraph">
+                    <strong>Database Management Systems Lab:</strong> Features industry-standard database servers and tools for learning SQL, NoSQL, and database design principles.
+                </p>
+                <p class="content-paragraph">
+                    <strong>Network and Security Lab:</strong> Advanced networking equipment and security tools for understanding network protocols, cybersecurity, and system administration.
+                </p>
+                <p class="content-paragraph">
+                    <strong>Machine Learning and AI Lab:</strong> High-performance computing systems with GPU acceleration for machine learning, deep learning, and artificial intelligence projects.
+                </p>
+            </div>
+        `
+            };
+
+            return contentData[section] || contentData['home'];
+        }
+
+        // Performance optimization: Debounce scroll events
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Preloader functionality
+        window.addEventListener('load', function () {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+
+</html>

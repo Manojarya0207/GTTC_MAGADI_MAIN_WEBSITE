@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Feedback Form</title>
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --success-color: #2ecc71;
+            --error-color: #e74c3c;
+            --border-color: #ddd;
+            --text-color: #333;
+            --light-bg: #f5f5f5;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .rating-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .rating-star {
+            display: none;
+        }
+        
+        .rating-label {
+            cursor: pointer;
+            font-size: 30px;
+            color: #ccc;
+            transition: color 0.2s;
+        }
+        
+        .rating-star:checked ~ .rating-label,
+        .rating-star:hover ~ .rating-label,
+        .rating-label:hover {
+            color: #ffc107;
+        }
+        
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .submit-btn:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+        }
+        
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .alert-error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .error-message {
+            color: var(--error-color);
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>College Feedback Form</h1>
+        
+        <div id="successAlert" class="alert alert-success">
+            Thank you for your feedback! We appreciate your time.
+        </div>
+        
+        <div id="errorAlert" class="alert alert-error">
+            There was an error submitting your feedback. Please try again later.
+        </div>
+        
+        <form id="feedbackForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+                <div id="nameError" class="error-message">Please enter your name</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+                <div id="emailError" class="error-message">Please enter a valid email address</div>
+            </div>
+            
+            <div class="form-group">
+                <label>Rating</label>
+                <div class="rating-container">
+                    <input type="radio" id="star5" name="rating" value="5" class="rating-star" checked>
+                    <label for="star5" class="rating-label">★</label>
+                    
+                    <input type="radio" id="star4" name="rating" value="4" class="rating-star">
+                    <label for="star4" class="rating-label">★</label>
+                    
+                    <input type="radio" id="star3" name="rating" value="3" class="rating-star">
+                    <label for="star3" class="rating-label">★</label>
+                    
+                    <input type="radio" id="star2" name="rating" value="2" class="rating-star">
+                    <label for="star2" class="rating-label">★</label>
+                    
+                    <input type="radio" id="star1" name="rating" value="1" class="rating-star">
+                    <label for="star1" class="rating-label">★</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="feedback">Your Feedback</label>
+                <textarea id="feedback" name="feedback" required></textarea>
+                <div id="feedbackError" class="error-message">Please enter your feedback</div>
+            </div>
+            
+            <button type="submit" id="submitBtn" class="submit-btn">Submit Feedback</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('feedbackForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const successAlert = document.getElementById('successAlert');
+            const errorAlert = document.getElementById('errorAlert');
+            
+            // Form validation
+            function validateForm() {
+                let isValid = true;
+                
+                // Validate name
+                const name = document.getElementById('name');
+                const nameError = document.getElementById('nameError');
+                if (name.value.trim() === '') {
+                    nameError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    nameError.style.display = 'none';
+                }
+                
+                // Validate email
+                const email = document.getElementById('email');
+                const emailError = document.getElementById('emailError');
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email.value)) {
+                    emailError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    emailError.style.display = 'none';
+                }
+                
+                // Validate feedback
+                const feedback = document.getElementById('feedback');
+                const feedbackError = document.getElementById('feedbackError');
+                if (feedback.value.trim() === '') {
+                    feedbackError.style.display = 'block';
+                    isValid = false;
+                } else {
+                    feedbackError.style.display = 'none';
+                }
+                
+                return isValid;
+            }
+            
+            // Form submission
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                if (!validateForm()) {
+                    return;
+                }
+                
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+                
+                try {
+                    // Using FormSubmit.co to send the email
+                    const formData = new FormData(form);
+                    formData.append('_replyto', formData.get('email'));
+                    formData.append('_subject', 'New College Feedback');
+                    formData.append('_template', 'table');
+                    
+                    const response = await fetch('https://formsubmit.co/ajax/manojarya0207@gmail.com', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    
+                    const result = await response.json();
+                    
+                    if (result.success) {
+                        // Show success message
+                        successAlert.style.display = 'block';
+                        errorAlert.style.display = 'none';
+                        form.reset();
+                    } else {
+                        throw new Error('Submission failed');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    errorAlert.style.display = 'block';
+                    successAlert.style.display = 'none';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Submit Feedback';
+                    
+                    // Scroll to top to show message
+                    window.scrollTo(0, 0);
+                }
+            });
+            
+            // Real-time validation
+            document.getElementById('name').addEventListener('input', function() {
+                document.getElementById('nameError').style.display = 'none';
+            });
+            
+            document.getElementById('email').addEventListener('input', function() {
+                document.getElementById('emailError').style.display = 'none';
+            });
+            
+            document.getElementById('feedback').addEventListener('input', function() {
+                document.getElementById('feedbackError').style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

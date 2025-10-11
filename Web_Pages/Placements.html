@@ -1,0 +1,580 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card Grid Layout</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            color: #ededed;
+            background: #6cb5e9;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        #searchInput {
+            padding: 10px;
+            width: 300px;
+            border: 2px solid #4070f4;
+            border-radius: 6px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        #searchButton {
+            padding: 10px 20px;
+            background-color: #4070f4;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        #searchButton:hover {
+            background-color: #104ef9;
+        }
+
+        .slide-containar {
+            max-width: 1300px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 columns */
+            gap: 20px; /* Space between cards */
+        }
+
+        .card {
+            width: 100%;
+            border-radius: 25px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-content {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 14px;
+        }
+
+        .overlay {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+           
+            background-color: none;
+            border-radius: 25px 25px 25px 25px;
+        }
+
+        .overlay::before,
+        .overlay::after {
+            content: '';
+            position: absolute;
+            right: 40PX;
+            bottom: 40px;
+            height: 40px;
+            width: 40px;
+            background-color: #4070f4;
+        }
+
+        
+
+        .card-image {
+            position: relative;
+            height: 150px;
+            width: 150px;
+            border-radius: 70%;
+            background: #fff;
+            padding: 3px;
+        }
+
+        .card-image .card-img {
+            height: 100%;
+            width: 100%;
+            
+            border-radius: 50%;
+            border: 4px solid #4070f4;
+        }
+        .card-image img:hover {
+      transform: scale(1.3);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 1.5);
+    }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 14px;
+        }
+
+        .name {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #151515;
+            text-align: left;
+            width: 100%;
+            padding-left: 40px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .button {
+            border: none;
+            font-size: 16px;
+            color: #fff;
+            padding: 8px 16px;
+            background-color: #3165f4;
+            border-radius: 6px;
+            margin: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #104ef9;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .search-container {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #searchInput {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 10px;
+            }
+
+            #searchButton {
+                width: 100%;
+                max-width: 300px;
+                margin-left: 0;
+            }
+
+            .slide-containar {
+                grid-template-columns: repeat(1, 1fr); /* 1 column for mobile */
+                gap: 15px;
+            }
+
+            .card {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .card-content {
+                padding: 10px;
+            }
+
+            .description {
+                padding-left: 20px;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .slide-containar {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+            }
+        }
+        .text{
+            color: rgb(12, 12, 12);
+            padding-bottom: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: underline;
+            text-transform: capitalize;
+            font-size: 50px;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <center><h1 class="text">Placements Companyes</h1></center>
+    </div>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search by name..." oninput="filterCards()">
+        <button id="searchButton">Search</button>
+    </div>
+
+    <div class="slide-containar">
+        
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/IFB.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">Indian Fine Blanks (IFB)</h2>
+                <p class="description">IFB was founded in 1974 in collaboration with Hienrich Schmid AG of Switzerland. 
+                    The company was originally called Indian Fine Blanks Limited. 
+                    The name was later changed to IFB Industries Ltd. </p>
+                
+                <a href="https://www.ifbappliances.com"target="_blank"><button class="button">View More</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/TATA.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">TATA</h2>
+                <p class="description">The Tata Group is an Indian group of companies headquartered in Mumbai. Established in 1868, it is India's largest business conglomerate, with products and services in over 160 countries, and operations in 100 countries.</p>
+                
+                <a href="https://www.tata.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/ASK.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">ASK Automotive Limited</h2>
+                <p class="description">ASK was started in 1972 by Sandra Kurtzig in California. She left her job as a marketing specialist at General Electric and invested $2,000 of her savings to start the company in the apartment she shared with her HP salesman husband</p>
+                
+                <a href="https://en.wikipedia.org/wiki/ASK_Group"><button class="button">View More</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/INDO-MIM.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">INDO-MIM Limited</h2>
+                <p class="description">INDO-MIM Limited is a globally recognized leader in Metal Injection Molding (MIM) and Precision Manufacturing solutions. Founded in 1996 and headquartered in Bengaluru</p>
+                
+                <a href="https://www.indo-mim.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/JBM.jpeg" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">JAY BHARAT MARUTI (JBM)</h2>
+                <p class="description">Our journey began nearly four decades ago, in 1983, as we started manufacturing cylinders. Soon after, as the world witnessed a technological boom, our founder had a vision – “JBM inside”. </p>
+                
+                <a href="https://www.jbmgroup.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/WIPRO.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">WIPRO</h2>
+                <p class="description">Wipro Limited is a leading global IT, consulting, and business process services company, known for its comprehensive portfolio and focus on digital transformation, with a strong presence in India and operations across 66 countries. </p>
+                
+                <a href="https://www.wipro.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/badve group.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">BADVE GROUP</h2>
+                <p class="description">Established in the year 1988, Belrise Industries specializes in component manufacturing for Automotive & White Goods Industries.  Mirror systems specifically for Two-Wheeler, Three-Wheeler and Four-Wheeler Passenger and Commercial vehicles.</p>
+                
+                <a href="https://belriseindustries.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/MARCOPOLO.jpeg" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">MARCOPOLO</h2>
+                <p class="description">Marcopolo is a company with two main entities: Marcopolo Products Pvt. Ltd. (a rapid prototyping and manufacturing company based in Pune, India) and Marcopolo S.A. (a bus body manufacturing company based in Brazil).Marcopolo is a company with two main entities </p>
+                
+                <a href="https://www.marc-o-polo.com/en-in"><button class="button">View More</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/INTERPLEX.jpeg" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">INTERPLEX</h2>
+                <p class="description">Interplex is a world-class business dedicated to providing best-fit customized interconnect solutions. Leveraging our extensive technical expertise, vertically integrated manufacturing capabilities and global footprint enable us to quickly and cost-effectively solve complex customer problems.</p>
+                
+                <a href="https://interplex.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/MOLEX.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">MOLEX</h2>
+                <p class="description">Molex LLC, a subsidiary of Koch Industries, is a global electronics leader specializing in interconnect solutions, offering products like connectors, cables, and sensors for various industries, including automotive, data centers, and healthcare. </p>
+                
+                <a href="https://www.molex.com/en-us/home"><button class="button">View More</button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/INTEL.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">INTEL</h2>
+                <p class="description">Intel Corporation (INTC), an American multinational technology company, designs, manufactures, and sells computer components like CPUs and related products, and is a major player in the semiconductor industry, headquartered in Santa Clara, California. </p>
+                
+                <a href="https://www.intel.com/content/www/us/en/homepage.html"><button class="button">View More</button></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/TOYOTA.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">TOYOTA</h2>
+                <p class="description">Toyota Motor Corp., Largest Japanese automobile manufacturer and one of the largest automotive companies in the world. It was established in 1933 as a division of the Toyoda Automatic Loom Works, Ltd., and in 1937 it was incorporated as the Toyota Motor Co., Ltd</p>
+                
+                <a href="https://www.toyotabharat.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/TVS.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">TVS</h2>
+                <p class="description">TVS Motor Company is an Indian multinational motorcycle manufacturer headquartered in Chennai. It is the third-largest motorcycle company in India by revenue. The company has annual sales of three million units and an annual production capacity of over four million vehicles.</p>
+                
+                <a href="https://www.tvsmotor.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/VOLVO.jpeg" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">VOLVO</h2>
+                <p class="description">Volvo Group, founded in 1927 and headquartered in Gothenburg, Sweden, is a global leader in commercial transport solutions, specializing in trucks, buses, construction equipment, and marine/industrial power solutions, with a focus on sustainable transport and infrastructure. </p>
+                
+                <a href="https://www.volvocars.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/GAYATRI.jpeg" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">GAYATRI TOOL SOLUTIONS</h2>
+                <p class="description">It is a pleasure to introduce ourselves as a custom plastic injection mould making company that also offers product design & development, mould design, manufacturing and injection molding facilities to the houseware, automotive, consumer, electronic and IT industries</p>
+                
+                <a href="http://www.gayatritoolingsolutions.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/AEQUS.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">AEQUS ECOSYSTEM OF EFFICIENCY</h2>
+                <p class="description">Aequs is a contract manufacturing company with an "ecosystem of efficiency" that delivers integrated capabilities for increased customer value, focusing on aerospace, toys, and consumer durables, with a global footprint. </p>
+                
+                <a href="https://www.aequs.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/BANDO.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">BANDO CHEMICAL INDUSTRIES</h2>
+                <p class="description">Bando has grown to become a global supplier of power transmission belts and conveyor belts, based on our rubber and elastomer processing technologies. Our history of pioneering spirit dates back to the Meiji Era in Japan.</p>
+                
+                <a href="https://products.bandogrp.com/en/"><button class="button">View More</button></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/SHIVAM.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">SHIVAM AUTOTECH Pvt.Ltd</h2>
+                <p class="description">Shivam Autotech Limited is a leading Indian manufacturer of transmission gears and shafts, serving automobile manufacturers for over 24 years, with headquarters in Gurugram and operations across India. </p>
+                
+                <a href="https://www.shivamautotech.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/lumax.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">LUMAX</h2>
+                <p class="description">Today, Lumax is a leading manufacturer and supplier of automotive components and systems in India with a brand revenue of Rs 8434 crores (FY2024). The Lumax-DK Jain Group is one of the pioneers and leading business houses in the Indian Automotive Industry.</p>
+                
+                <a href="https://www.lumaxworld.in/overview.html"><button class="button">View More</button></a>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/APEX AUTO LIMITED.jpeg" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">APEX AUTO LIMITED</h2>
+                <p class="description">Apex is the largest Indian manufacturer of finished fabricated structures to the earth-moving and construction equipment industry in India. We are presently manufacturing components for top selling excavators  back hoe loaders, cranes, compactors, transit mixers.</p>
+
+                <a href="https://apexautoltd.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/ASHOK IRON GROUP.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">ASHOK IRON GROUP</h2>
+                <p class="description">Ashok Iron Group was founded in 1974 by our visionary leader Mr. Ashok Humbarwadi. Ashok Iron Group has grown from strength to strength owing to the technology, innovation, quality products & customer service. Ashok Iron Group is the one of the largest foundry groups in the world.</p>
+                
+                <a href="https://ashokiron.com/"><button class="button">View More</button></a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="image-content">
+                <span class="overlay"></span>
+                <div class="card-image">
+                    <img src="images/TECOSIM.png" alt="" class="card-img">
+                </div>
+            </div>
+            <div class="card-content">
+                <h2 class="name">TECOSIM</h2>
+                <p class="description">At TECOSIM, we’re proud of our history – over 30 years of engineering solutions world’s apart from our competitors. From the conception of the company in Germany, 1992, to becoming an internationally recognised, multi award-winning organisation, we are delighted with where we are today.</p>
+                
+                <a href="https://tecosim.com/in/"><button class="button">View More</button></a>
+            </div>
+        </div>
+
+        <!-- Add more cards here -->
+    </div>
+
+    <script>
+        function filterCards() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const cards = document.querySelectorAll('.card');
+
+            cards.forEach(card => {
+                const name = card.querySelector('.name').textContent.toLowerCase();
+                if (name.includes(searchInput)) {
+                    card.style.display = 'flex'; // Show the card
+                } else {
+                    card.style.display = 'none'; // Hide the card
+                }
+            });
+        }
+    </script>
+</body>
+</html>
