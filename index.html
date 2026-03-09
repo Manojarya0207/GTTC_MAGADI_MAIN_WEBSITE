@@ -2,472 +2,104 @@
 <html lang="en">
 
 <head>
-    <title>Magadi STU-36
-        - Government Tool Room &amp; Training Centre</title>
+    <title>GTTC Magadi | Government Tool Room & Training Centre</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="website icon" type="png" href="images/karnataka_logo-removebg-preview - Copy (2).png">
+    <link rel="website icon" type="png" href="Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <style> 
-        * {
-            box-sizing: border-box;
-        }
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
-        body {
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            position: relative;
-            margin-bottom: 5px;
-        }
-
-        .containe {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background-color: #bcd6ea;
-        }
-
-        .top-left {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-        }
-
-        .top-right {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-
-        .centered-text {
-            position: absolute;
-            top: 0;
-            left: none;
-            transform: translateX(-50%);
-            font-size: 20px;
-            font-weight: bold;
-            margin: 20px 0;
-            flex-grow: 1;
-            text-align: center;
-            font-size: 24px;
-        }
-
-        .title {
-            flex-grow: 1;
-            text-align: center;
-            font-size: 28px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            font-weight: 700;
-        }
-
-        /* Mobile responsive styling */
-        @media (max-width: 768px) {
-
-            .top-left,
-            .top-right {
-                width: 80px;
-                height: 80px;
-            }
-
-            .title {
-                font-size: 20px;
-            }
-
-            .containe {
-                padding: 10px;
-            }
-
-            .header {
-                padding: 10px;
-            }
-
-            .col-6 {
-                width: 100%;
-            }
-
-            /* Adjust header logo spacing */
-            .top-left {
-                left: 5px;
-            }
-
-            .top-right {
-                right: 5px;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            .top-left,
-            .top-right {
-                width: 60px;
-                height: 60px;
-            }
-
-            .title {
-                font-size: 18px;
-            }
-
-            h1 {
-                font-size: 16px;
-            }
-        }
-    </style>
-
-    <div class="header">
-        <div class="col-6">
-            <div class="containe">
-                <img src="Main_Page_Images/magdi_logo-removebg-preview - Copy - Copy.png" alt="Left Image" class="top-left"
-                    width="120px" height="110px">
-                <!-- IMAGE OF GTTC MAGADI -->
-                <img src="Main_Page_Images/kaushalya-karnataka.png" alt="Right Image" class="top-right" width="85px"
-                    height="110px">
-                <!-- IMAGE OF GTTC MAGADI -->
-                <img src="Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png" class="from" width="50px"
-                    height="50px">
-                <!-- IMAGE OF GTTC MAGADI -->
-                <b>
-                    <h1>
-                        <div class="title">GOVERNMENT TOOL ROOM AND TRAINING CENTRE</div>
-                    </h1>
-                </b>
-                <b>
-                    <h1>
-                        <div class="title">MAGADI-36</div>
-                    </h1>
-                </b>
-            </div>
-        </div>
-    </div>
-
-
-    <!--start of navbar-->
-    <style>
-        /* Navbar Styling */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: rgb(86, 96, 182);
-            padding: 15px 10px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 23px;
-        }
-
-        .nav-links li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 20px;
-            display: block;
-            padding: 0px 13px;
-        }
-
-        .nav-links li a:hover {
-            background-color: #232222;
-        }
-
-        /* Dropdown Menu */
-        .dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #444;
-            list-style: none;
-            padding: 15px;
-            border-radius: 19px;
-            min-width: 200px;
-            z-index: 1001;
-        }
-
-        .dropdown:hover>.dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-menu li {
-            margin: 18px 8px;
-        }
-
-        /* Sub-dropdown Menu */
-        .dropdown-submenu {
-            position: relative;
-        }
-
-        .dropdown-submenu .dropdown-menu {
-            display: none;
-            position: absolute;
-            left: 100%;
-            top: 0;
-        }
-
-        .dropdown-submenu:hover>.dropdown-menu {
-            display: block;
-        }
-
-        /* Search Bar Styling */
-        .search-container {
-            display: flex;
-            align-items: center;
-        }
-
-        .search-bar {
-            width: 0;
-            padding: 0;
-            border: none;
-            border-radius: 25px;
-            transition: width 0.3s ease, padding 0.3s ease;
-        }
-
-        .search-bar.active {
-            width: 150px;
-            padding: 8px 10px;
-        }
-
-        #search-btn {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 20px;
-            cursor: pointer;
-        }
-
-        /* Hamburger Menu */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .hamburger .bar {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 4px 0;
-            transition: 0.4s;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-links {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: #333;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                padding: 10px 0;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .search-container {
-                margin-top: 10px;
-            }
-
-            .dropdown-menu {
-                position: static;
-                background-color: #555;
-                display: none;
-            }
-
-            .dropdown:hover>.dropdown-menu {
-                display: none;
-            }
-
-            .dropdown-submenu .dropdown-menu {
-                position: static;
-                left: auto;
-                top: auto;
-            }
-
-            .dropdown.active>.dropdown-menu {
-                display: block;
-            }
-
-            .dropdown-submenu.active>.dropdown-menu {
-                display: block;
-            }
-        }
-    </style>
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <nav class="navbar">
-        <!-- Hamburger Menu for Mobile -->
-        <div class="hamburger" id="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+    <!-- Top Accessibility Bar -->
+    <div class="top-bar">
+        <div class="left-links">
+            <a href="#">Government of Karnataka</a>
+            <a href="#">ಕನ್ನಡ</a>
         </div>
+        <div class="right-controls">
+            <span class="btn-acc" id="font-decrease" title="Decrease Font Size">A-</span>
+            <span class="btn-acc" id="font-reset" title="Reset Font Size">A</span>
+            <span class="btn-acc" id="font-increase" title="Increase Font Size">A+</span>
+            <a href="#main-content" style="margin-left: 10px;">Skip to Main Content</a>
+        </div>
+    </div>
 
-        <!-- Nav Links and Search Bar -->
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="Web_Pages/About.html">About</a></li>
-            <li class="dropdown">
-                <a href="#">Admission </a>
-                <ul class="dropdown-menu">
+    <!-- Brand Header -->
+    <header class="brand-header">
+        <div class="logo-container">
+            <img src="Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png" alt="Karnataka Govt Logo">
+        </div>
+        <div class="title-container">
+            <h1>Government Tool Room and Training Centre</h1>
+            <h2>GTTC Magadi - STU 36</h2>
+        </div>
+        <div class="logo-container">
+            <img src="Main_Page_Images/magdi_logo-removebg-preview - Copy - Copy.png" alt="GTTC Magadi Logo">
+            <img src="Main_Page_Images/kaushalya-karnataka.png" alt="Kaushalya Karnataka">
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div id="nav-toggle" style="display: none; padding: 15px; cursor: pointer;">
+            <i class="fas fa-bars"></i> MENU
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Web_Pages/About.html">About Us</a></li>
+            <li>
+                <a href="#">Admission <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
                     <li><a href="Web_Pages/Courses Details.html">Courses Details</a></li>
                     <li><a href="Web_Pages/Apply Now.html">Apply Now</a></li>
                 </ul>
             </li>
-            <li class="dropdown">
-                <a href="#">Academics</a>
-                <ul class="dropdown-menu">
-                    <li class="dropdown-submenu">
-                        <a href="#">Departments</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="Department_DTDM.html">DTDM</a></li>
-                            <li><a href="Department_DMCH.html">DMCH</a></li>
-                            <li><a href="Department_DEEE.html">DEEE</a></li>
-                            <li><a href="Department_DAIML.html">DAIML</a></li>
-                        </ul>
-                    </li>
+            <li>
+                <a href="#">Academics <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="Department_DTDM.html">DTDM</a></li>
+                    <li><a href="Department_DMCH.html">DMCH</a></li>
+                    <li><a href="Department_DEEE.html">DEEE</a></li>
+                    <li><a href="Department_DAIML.html">DAIML</a></li>
                     <li><a href="examination.html">Examination</a></li>
                 </ul>
             </li>
             <li><a href="Web_Pages/Gallery.html">Gallery</a></li>
             <li><a href="Web_Pages/Placements.html">Placements</a></li>
             <li><a href="Web_Pages/Amenities.html">Amenities</a></li>
-            <li><a href="Web_Pages/Others.html">Others</a></li>
             <li><a href="Web_Pages/ContactUs.html">Contact Us</a></li>
+             <li><a href="Web_Pages/ContactUs.html">Others</a></li>
         </ul>
-        <div class="search-container">
-            <input type="text" id="search-bar" placeholder="Search..." class="search-bar">
-            <button id="search-btn">🔍</button>
-        </div>
     </nav>
 
-    <script>
-        // Toggle search bar on button click
-        const searchBtn = document.getElementById('search-btn');
-        const searchBar = document.getElementById('search-bar');
-
-        searchBtn.addEventListener('click', () => {
-            searchBar.classList.toggle('active');
-            searchBar.focus();
-        });
-
-        // Hamburger Menu Toggle
-        const hamburger = document.getElementById('hamburger');
-        const navLinks = document.getElementById('nav-links');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        // Mobile dropdown functionality
-        const dropdowns = document.querySelectorAll('.dropdown');
-
-        dropdowns.forEach(dropdown => {
-            const link = dropdown.querySelector('a');
-
-            link.addEventListener('click', (e) => {
-                if (window.innerWidth <= 768) {
-                    e.preventDefault();
-                    dropdown.classList.toggle('active');
-
-                    // Close other open dropdowns
-                    dropdowns.forEach(otherDropdown => {
-                        if (otherDropdown !== dropdown) {
-                            otherDropdown.classList.remove('active');
-                        }
-                    });
-                }
-            });
-        });
-    </script>
-
-    <style>
-        * {
-            padding: -10px;
-            margin: 0px;
-        }
-
-
-        html {
-            font-family: Roboto, sans-serif, arial;
-            background: #f0f3fa;
-        }
-
-        .width-100 {
-            width: 100%;
-            float: left;
-        }
-
-        .top-header {
-            background: #2196f3;
-            padding: 5px 0px;
-            border-bottom: 1px solid #3131315e;
-            position: relative;
-            /* Ensure z-index works */
-            z-index: 999;
-            /* Place news ticker below navbar but above other content */
-        }
-
-        .news-list {
-            background: #fff;
-            color: red;
-            padding: 6px;
-            font-size: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .news-list {
-                background-color: #2196f3;
-                color: red;
-                padding: 6px;
-                font-size: 20px;
-            }
-        }
-
-        .headquote {
-            font-size: 20px;
-            color: #fff;
-            width: 92.3%;
-            margin-bottom: -5px;
-
-        }
-    </style>
-
-    <body>
-        <div class="width-100 top-header">
-            <div class="container">
-                <div class="latest-news">
-                    <div class="width-100">
-                        <b class="news-list">NEWS :-</b>
-
-                        <marquee class="headquote">hi gttc magadi <a
-                                href="https://docs.google.com/forms/d/e/1FAIpQLSeGDQ5d4J5LokzimTe-1FzDqVJFIL2I5SJnU_HJNXNNoWhJJw/viewform">Click
-                                here</a></marquee>
-
-
-                    </div>
-                </div>
-            </div>
+    <!-- News Ticker -->
+    <div class="top-header"
+        style="background: var(--primary-color); padding: 10px 0; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div class="container"
+            style="max-width: 1240px; margin: 0 auto; display: flex; align-items: center; color: white; padding: 0 20px;">
+            <span
+                style="background: var(--secondary-color); color: var(--primary-color); padding: 5px 15px; font-weight: bold; border-radius: 4px; margin-right: 20px; white-space: nowrap;">LATEST
+                NEWS</span>
+            <marquee onmouseover="this.stop();" onmouseout="this.start();" style="flex-grow: 1; font-weight: 500;">
+                Welcome to GTTC Magadi. Admissions are open for the academic year 2024-25. <a
+                    href="Web_Pages/Apply Now.html"
+                    style="color: var(--secondary-color); text-decoration: underline;">Apply Now</a> | Skill training
+                programs for the future!
+            </marquee>
         </div>
+    </div>
+
+    <main id="main-content">
 
 
 
@@ -1094,18 +726,14 @@
                 <div class="footer-section social">
                     <h2>Follow Us</h2>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com" target="_blank" class="social-link" data-name="Facebook">
+                        <a href="https://www.facebook.com/share/1NJKVhcLfK/" target="_blank" class="social-link" data-name="Facebook">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="https://www.twitter.com" target="_blank" class="social-link" data-name="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com" target="_blank" class="social-link" data-name="Instagram">
+                      
+                        <a href="https://www.instagram.com/gttc_magadi?utm_source=qr&igsh=ZndxcnFkbTF0ZWNz" target="_blank" class="social-link" data-name="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.linkedin.com" target="_blank" class="social-link" data-name="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
+                       
                         <a href="https://www.youtube.com" target="_blank" class="social-link" data-name="YouTube">
                             <i class="fab fa-youtube"></i>
                         </a>
@@ -1130,216 +758,76 @@
             </div>
 
         </footer>
-        <style>
-            .pamphlet {
-                position: fixed;
-                /* Changed to fixed to float above all content */
-                top: -100%;
-                /* Start off-screen (above the page) */
-                width: 100%;
-                height: 70%;
-                text-align: center;
-                padding: 0px;
-                opacity: 0;
-                animation: slideIn 1s ease-out forwards;
-                /* Animation for sliding down */
-                z-index: 9999;
-                /* Ensure it's on top of everything */
-            }
+       
 
-
-
-            /* Animation for the pamphlet sliding in from the top */
-            @keyframes slideIn {
-                0% {
-                    top: -50%;
-                    opacity: 0;
-                }
-
-                100% {
-                    top: 20%;
-                    /* Position it in the center vertically */
-                    opacity: 1;
-                    transform: translateY(-10%);
-                    /* Fine-tune the vertical positioning */
-                }
-            }
-
-            /* Animation for closing the pamphlet (sliding it up) */
-            @keyframes slideUp {
-                0% {
-                    top: 50%;
-                    opacity: 1;
-                }
-
-                100% {
-                    top: -100%;
-                    opacity: 0;
-                }
-            }
-
-            @media (max-width: 768px) {
-
-                @keyframes slideIn {
-                    0% {
-                        top: -50%;
-                        opacity: 0;
-                    }
-
-                    100% {
-                        top: 20%;
-                        /* Position it in the center vertically */
-                        opacity: 1;
-                        transform: translateY(-10%);
-                        /* Fine-tune the vertical positioning */
-                    }
-                }
-            }
-        </style>
-
-        <div class="pamphlet">
-            <img src="Main_Page_Images/Pamphlet_Image.jpg" alt="" width="380px" height="480px">
+        <!-- Pamphlet (Pop-up) -->
+        <div class="pamphlet" id="pamphlet"
+            style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10001; background: white; padding: 10px; box-shadow: 0 0 20px rgba(0,0,0,0.5); border-radius: 8px;">
+            <span
+                style="position: absolute; top: -15px; right: -15px; background: var(--accent-color); color: white; width: 30px; height: 30px; border-radius: 50%; text-align: center; line-height: 30px; cursor: pointer; font-weight: bold;"
+                onclick="this.parentElement.style.display='none'">&times;</span>
+            <img src="Main_Page_Images/Pamphlet_Image.jpg" alt="Admission Pamphlet"
+                style="max-width: 90vw; max-height: 80vh;">
         </div>
 
-        <script>
-            // Function to close the pamphlet when the user clicks anywhere
-            document.body.addEventListener('click', function (event) {
-                const pamphlet = document.querySelector('.pamphlet');
-
-                // Close the pamphlet by animating it up
-                pamphlet.style.animation = 'slideUp 1s ease-out forwards';
-
-                // Optionally, prevent further clicks from triggering the close again
-                document.body.removeEventListener('click', arguments.callee);
-            });
-        </script>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const socialLinks = document.querySelectorAll(".social-link");
-
-                socialLinks.forEach(link => {
-                    link.addEventListener("mouseover", () => {
-                        link.style.transform = "rotate(10deg) scale(1.2)";
-                    });
-
-                    link.addEventListener("mouseleave", () => {
-                        link.style.transform = "rotate(0deg) scale(1)";
-                    });
-                });
-            });
-        </script>
-
-        <!-- Modal HTML (Single, Reusable Structure) -->
-        <div id="policyModal" class="modal">
-            <div class="modal-content">
-                <span class="close-button">&times;</span>
-                <h2 id="modalTitle"></h2>
-                <div id="editableContent" class="editable-content" contenteditable="true">
-                    <!-- Content will be loaded dynamically by JavaScript -->
-                </div>
+        <!-- Policy Modal -->
+        <div id="policyModal" class="modal"
+            style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 10002;">
+            <div class="modal-content"
+                style="background: white; margin: 10% auto; padding: 30px; max-width: 800px; border-radius: 8px; position: relative;">
+                <span class="close-button"
+                    style="position: absolute; top: 15px; right: 20px; font-size: 30px; cursor: pointer;">&times;</span>
+                <h2 id="modalTitle"
+                    style="color: var(--primary-color); border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px; margin-bottom: 20px;">
+                </h2>
+                <div id="editableContent" style="max-height: 60vh; overflow-y: auto; line-height: 1.8;"></div>
             </div>
         </div>
 
+        <script src="js/main.js"></script>
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const policyLinks = document.querySelectorAll('.policies'); // Select all policy links
+            // Site specific logic
+            document.addEventListener('DOMContentLoaded', () => {
+                // Show pamphlet on load
+                setTimeout(() => {
+                    const pamphlet = document.getElementById('pamphlet');
+                    if (pamphlet) pamphlet.style.display = 'block';
+                }, 1000);
+
+                // Policy Modal Logic
+                const policyLinks = document.querySelectorAll('.policies');
                 const policyModal = document.getElementById('policyModal');
-                const closeButton = document.querySelector('.close-button');
+                const closeBtn = document.querySelector('.close-button');
                 const modalTitle = document.getElementById('modalTitle');
                 const editableContent = document.getElementById('editableContent');
 
-                // Define content for each policy type
                 const policyContents = {
-                    copyright: {
-                        title: "Copyright Policy",
-                        content: `
-                            <p>This is the default content for the Copyright Policy. You can edit this text directly.</p>
-                            <p>All content on this website, including text, images, graphics, and other materials, is protected by copyright law. Unauthorized reproduction, distribution, or transmission of any part of this website is strictly prohibited.</p>
-                            <p>For permissions or inquiries, please contact us at gttcmagadi@gmail.com.</p>
-                            <p>We respect the intellectual property rights of others and expect our users to do the same. If you believe that your copyrighted work has been copied in a way that constitutes copyright infringement, please notify us immediately.</p>
-                        `
-                    },
-                    hyperlinking: {
-                        title: "Hyperlinking Policy",
-                        content: `
-                            <p>This website may contain links to other websites. These links are provided for your convenience to provide further information. They do not signify that we endorse the website(s).</p>
-                            <p>We have no responsibility for the content of the linked website(s). You may not create a link to this website from another website or document without our prior written consent.</p>
-                            <p>Linking directly to our internal pages (deep linking) is generally permitted for non-commercial purposes, provided proper attribution is given.</p>
-                        `
-                    },
-                    security: {
-                        title: "Security Policy",
-                        content: `
-                            <p>We are committed to ensuring that your information is secure. In order to prevent unauthorized access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online.</p>
-                            <p>However, no method of transmission over the Internet, or method of electronic storage, is 100% secure. Therefore, while we strive to use commercially acceptable means to protect your personal information, we cannot guarantee its absolute security.</p>
-                            <p>Users are advised to take their own precautions, such as using strong passwords and keeping their software updated.</p>
-                        `
-                    },
-                    terms: {
-                        title: "Terms & Conditions",
-                        content: `
-                            <p>Welcome to our website. If you continue to browse and use this website, you are agreeing to comply with and be bound by the following terms and conditions of use, which, together with our privacy policy, govern [Your Organization Name]'s relationship with you in relation to this website.</p>
-                            <p>The use of this website is subject to the following terms of use:</p>
-                            <ul>
-                                <li>The content of the pages of this website is for your general information and use only. It is subject to change without notice.</li>
-                                <li>Neither we nor any third parties provide any warranty or guarantee as to the accuracy, timeliness, performance, completeness or suitability of the information and materials found or offered on this website for any particular purpose.</li>
-                                <li>Your use of any information or materials on this website is entirely at your own risk, for which we shall not be liable.</li>
-                            </ul>
-                            <p>This website contains material which is owned by or licensed to us. This material includes, but is not limited to, the design, layout, look, appearance and graphics. Reproduction is prohibited other than in accordance with the copyright notice, which forms part of these terms and conditions.</p>
-                        `
-                    },
-                    privacy: {
-                        title: "Privacy Policy",
-                        content: `
-                            <p>This privacy policy sets out how [Your Organization Name] uses and protects any information that you give [Your Organization Name] when you use this website.</p>
-                            <p>We are committed to ensuring that your privacy is protected. Should we ask you to provide certain information by which you can be identified when using this website, then you can be assured that it will only be used in accordance with this privacy statement.</p>
-                            <p>We may collect the following information:</p>
-                            <ul>
-                                <li>Name and job title</li>
-                                <li>Contact information including email address</li>
-                                <li>Demographic information such as postcode, preferences and interests</li>
-                                <li>Other information relevant to customer surveys and/or offers</li>
-                            </ul>
-                            <p>We are committed to ensuring that your information is secure. In order to prevent unauthorized access or disclosure, we have put in place suitable physical, electronic and managerial procedures to safeguard and secure the information we collect online.</p>
-                        `
-                    }
+                    copyright: { title: "Copyright Policy", content: "<p>All content on this website is protected by copyright law of Government of Karnataka.</p>" },
+                    hyperlinking: { title: "Hyperlinking Policy", content: "<p>Links to external websites are provided for convenience only.</p>" },
+                    security: { title: "Security Policy", content: "<p>We take all necessary measures to ensure the security of your data.</p>" },
+                    terms: { title: "Terms & Conditions", content: "<p>By using this website, you agree to comply with our terms of use.</p>" },
+                    privacy: { title: "Privacy Policy", content: "<p>Your privacy is important to us. We do not share your personal information with third parties without consent.</p>" }
                 };
 
-                // Function to open the modal with specific content
-                function openPolicyModal(policyType) {
-                    const policyData = policyContents[policyType];
-                    if (policyData) {
-                        modalTitle.textContent = policyData.title;
-                        editableContent.innerHTML = policyData.content;
-                        policyModal.style.display = 'block';
-                    }
-                }
-
-                // Add event listeners to each policy link
                 policyLinks.forEach(link => {
-                    link.addEventListener('click', function (event) {
-                        event.preventDefault(); // Prevent default link behavior
-                        const policyType = this.dataset.policyType; // Get the policy type from data-policy-type attribute
-                        openPolicyModal(policyType);
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const type = link.dataset.policyType;
+                        modalTitle.textContent = policyContents[type].title;
+                        editableContent.innerHTML = policyContents[type].content;
+                        policyModal.style.display = 'block';
                     });
                 });
 
-                // Close the modal when the close button is clicked
-                if (closeButton) {
-                    closeButton.addEventListener('click', function () {
-                        policyModal.style.display = 'none';
-                    });
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', () => { policyModal.style.display = 'none'; });
                 }
 
-                // Close the modal when clicking outside of the modal content
-                window.addEventListener('click', function (event) {
-                    if (event.target == policyModal) {
-                        policyModal.style.display = 'none';
-                    }
+                window.addEventListener('click', (e) => {
+                    if (e.target === policyModal) policyModal.style.display = 'none';
                 });
             });
         </script>
-    </body>
+</body>
 
 </html>

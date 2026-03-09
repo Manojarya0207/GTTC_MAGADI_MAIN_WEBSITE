@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Examinations | GTTC Magadi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="website icon" type="png" href="Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .exam-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .exam-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .exam-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid #003366;
+            transition: transform 0.3s;
+        }
+
+        .exam-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .exam-card i {
+            font-size: 2.5rem;
+            color: #cc0000;
+            margin-bottom: 20px;
+        }
+
+        .exam-card h3 {
+            color: #003366;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .exam-card p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #003366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn-download:hover {
+            background: #cc0000;
+        }
+
+        .notice-board {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        .notice-board h2 {
+            color: #f57f17;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Accessibility Bar -->
+    <div class="top-bar">
+        <div class="left-links">
+            <a href="#">Government of Karnataka</a>
+            <a href="#">ಕನ್ನಡ</a>
+        </div>
+        <div class="right-controls">
+            <span class="btn-acc" id="font-decrease">A-</span>
+            <span class="btn-acc" id="font-reset">A</span>
+            <span class="btn-acc" id="font-increase">A+</span>
+            <a href="#main-content" style="margin-left: 10px;">Skip to Main Content</a>
+        </div>
+    </div>
+
+    <!-- Brand Header -->
+    <header class="brand-header">
+        <div class="logo-container">
+            <img src="Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png" alt="Karnataka Govt Logo">
+        </div>
+        <div class="title-container">
+            <h1>Government Tool Room and Training Centre</h1>
+            <h2>GTTC Magadi - STU 36</h2>
+        </div>
+        <div class="logo-container">
+            <img src="Main_Page_Images/magdi_logo-removebg-preview - Copy - Copy.png" alt="GTTC Magadi Logo">
+            <img src="Main_Page_Images/kaushalya-karnataka.png" alt="Kaushalya Karnataka">
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div id="nav-toggle" style="display: none; padding: 15px; cursor: pointer;">
+            <i class="fas fa-bars"></i> MENU
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="Web_Pages/About.html">About Us</a></li>
+            <li>
+                <a href="#">Admission <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="Web_Pages/Courses Details.html">Courses Details</a></li>
+                    <li><a href="Web_Pages/Apply Now.html">Apply Now</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Academics <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="Department_DTDM.html">DTDM</a></li>
+                    <li><a href="Department_DMCH.html">DMCH</a></li>
+                    <li><a href="Department_DEEE.html">DEEE</a></li>
+                    <li><a href="Department_DAIML.html">DAIML</a></li>
+                    <li><a href="examination.html" class="active">Examination</a></li>
+                </ul>
+            </li>
+            <li><a href="Web_Pages/Gallery.html">Gallery</a></li>
+            <li><a href="Web_Pages/Placements.html">Placements</a></li>
+            <li><a href="Web_Pages/Amenities.html">Amenities</a></li>
+            <li><a href="Web_Pages/ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content" class="exam-container">
+        <h2 class="section-title">Examination & Academic Records</h2>
+
+        <p class="intro-text">Access examination schedules, results, and other academic notifications from the
+            controller of examinations, GTTC.</p>
+
+        <div class="exam-grid">
+            <!-- Time Table -->
+            <div class="exam-card">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Exam Time Table</h3>
+                <p>Download the latest theory and practical examination schedules for various departments.</p>
+                <a href="#" class="btn-download"><i class="fas fa-file-pdf"></i> Download PDF</a>
+            </div>
+
+            <!-- Results -->
+            <div class="exam-card">
+                <i class="fas fa-poll"></i>
+                <h3>Semester Results</h3>
+                <p>Check your semester examination results. Keep your registration number ready for access.</p>
+                <a href="#" class="btn-download">Check Results <i class="fas fa-external-link-alt"></i></a>
+            </div>
+
+            <!-- Hall Ticket -->
+            <div class="exam-card">
+                <i class="fas fa-id-card"></i>
+                <h3>Hall Tickets</h3>
+                <p>Download hall tickets for upcoming semester examinations. Ensure all fees are cleared.</p>
+                <a href="#" class="btn-download"><i class="fas fa-download"></i> Get Hall Ticket</a>
+            </div>
+        </div>
+
+        <div class="notice-board">
+            <h2><i class="fas fa-bell"></i> Important Notices</h2>
+            <ul>
+                <li>Last date for exam fee payment: 15th Nov 2024.</li>
+                <li>Practical exams start from 20th Nov 2024.</li>
+                <li>Model exams for final year students are scheduled for next week.</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About GTTC</h3>
+                <p>Government Tool Room and Training Centre (GTTC) was established in 1972 with the participation of the
+                    Karnataka State Government and the Government of Denmark.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Web_Pages/About.html">About Us</a></li>
+                    <li><a href="Web_Pages/Courses Details.html">Courses</a></li>
+                    <li><a href="Web_Pages/ContactUs.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Sy. No 21 Chikkakalya Village, Thippsandra Hobli, Magadi Taluk,
+                    Ramanagara Dist - 562131</p>
+                <p style="margin-top: 10px;"><i class="fas fa-phone"></i> +91 9379853899</p>
+                <p style="margin-top: 10px;"><i class="fas fa-envelope"></i> gttcmagadi@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Government Tool Room and Training Centre, Magadi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

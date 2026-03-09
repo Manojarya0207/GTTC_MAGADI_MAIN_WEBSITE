@@ -1,639 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Details Magadi STU-36 - Government Tool Room & Training Centre</title>
+    <title>Faculty Details | GTTC Magadi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="website icon" type="png" href="../Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../css/style.css">
 
     <style>
-   *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'poppins',sans-serif;
-}
+        .faculty-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
 
-body {
-    color: #ededed;
-    background: #e9eaea;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.slide-containar {
-    align-items: center;
-    max-width: 1300px;
-    width: 70%;
-    display: flex;
-    padding: 70px 25px;
-}
+        .filter-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
 
-.slide-content{
-    margin:  30px;
-}
-.card{
-    width: 320px;
-    border-radius: 25px;
-    background-color: #FFF;
-    align-items: center;
-}
-.image-content{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 14px;
-}
-.card-content{
-    display: flex;
-     flex-direction: column;
-    text-align: center;
-    padding: 10px 14px;
-    
-}
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
 
-.image-content{
-    position: relative;
-    row-gap: 5px;
-   
-}
-.overlay{
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    background-color:#4070F4 ;
-    border-radius: 25px 25px 0 25px;
-}
-.overlay::before,
-.overlay::after{
-    
-    position: absolute;
-    right: 0;
-    bottom: -40px;
-    height: 40px;
-    width: 40px;
-    background-color: red;
-}
-.card-image{
-    position: relative;
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    background: #FFF;
-    padding: 3px;
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px 15px 45px;
+            border: 2px solid #ddd;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
 
-}
-.card-image .card-img{
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #4070F4;
-}
-.name{
-    font-size: 20px;
-    font-weight: 700;
-    color: #333;
-    align-items: center;
-    
-}
-.description{
-    font-size: 16px;
-    color: #151515;
-    text-align: left;
-    padding-left: 40px;
-}
-.button{
-    border:none;
-    font-size: 16px;
-    color: #FFF;
-    padding: 8px 16px;
-    background-color: #3165f4;
-    border-radius: 6px;
-    margin: 14px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    align-items: center;
-}
-.button:hover{
-    background-color: #104ef9;
-}
-@media (min-width: 769px) and (max-width: 1024px) {
-    .slide-containar {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
-    }
-}
-</style>
+        .search-box input:focus {
+            outline: none;
+            border-color: #003366;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+        }
+
+        .faculty-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .faculty-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            border-top: 5px solid #003366;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .faculty-header {
+            padding: 30px 20px;
+            background: #f8f9fa;
+        }
+
+        .faculty-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 15px;
+        }
+
+        .faculty-info {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .faculty-name {
+            color: #003366;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .faculty-designation {
+            color: #cc0000;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .faculty-details {
+            text-align: left;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .faculty-details p {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .faculty-details i {
+            width: 25px;
+            color: #003366;
+        }
+
+        .faculty-footer {
+            padding: 15px;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+        }
+
+        .view-profile-btn {
+            color: #003366;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
 
-    
-
 <body>
-   
-    
-    <!--Code is Start here-->
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="images/TATA.jpeg" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Mahesh R Reddy</h2>
-                    </div>
-                        <p class="description">Principal </p>
-                        <p class="description">DOB:13-06-1980</p>
-                        <p class="description">Qulif:B.Tech,M.Tech</p>
-                        <p class="description">Contact no:9379853899</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
+    <!-- Top Accessibility Bar -->
+    <div class="top-bar">
+        <div class="left-links">
+            <a href="#">Government of Karnataka</a>
+            <a href="#">ಕನ್ನಡ</a>
+        </div>
+        <div class="right-controls">
+            <span class="btn-acc" id="font-decrease">A-</span>
+            <span class="btn-acc" id="font-reset">A</span>
+            <span class="btn-acc" id="font-increase">A+</span>
+            <a href="#main-content" style="margin-left: 10px;">Skip to Main Content</a>
         </div>
     </div>
 
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
+    <!-- Brand Header -->
+    <header class="brand-header">
+        <div class="logo-container">
+            <img src="../Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png" alt="Karnataka Govt Logo">
+        </div>
+        <div class="title-container">
+            <h1>Government Tool Room and Training Centre</h1>
+            <h2>GTTC Magadi - STU 36</h2>
+        </div>
+        <div class="logo-container">
+            <img src="../Main_Page_Images/magdi_logo-removebg-preview - Copy - Copy.png" alt="GTTC Magadi Logo">
+            <img src="../Main_Page_Images/kaushalya-karnataka.png" alt="Kaushalya Karnataka">
+        </div>
+    </header>
 
-                        <div class="card-image">
-                            <img src="Faculty Images/jagadesh1.jpg" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Jagadeeshakumar   </h2>
-                    </div>
-                        <p class="description">HOD: DTDM    </p>
-                        <p class="description">DOB:21-07-1997</p>
-                        <p class="description">Qulif: Diploma (DTDM),B.Tech</p>
-                        <p class="description">Contact no:8970234857</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div id="nav-toggle" style="display: none; padding: 15px; cursor: pointer;">
+            <i class="fas fa-bars"></i> MENU
+        </div>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li>
+                <a href="#">Admission <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="Courses Details.html">Courses Details</a></li>
+                    <li><a href="Apply Now.html">Apply Now</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Academics <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="../Department_DTDM.html">DTDM</a></li>
+                    <li><a href="../Department_DMCH.html">DMCH</a></li>
+                    <li><a href="../Department_DEEE.html">DEEE</a></li>
+                    <li><a href="../Department_DAIML.html">DAIML</a></li>
+                    <li><a href="../examination.html">Examination</a></li>
+                </ul>
+            </li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Placements.html">Placements</a></li>
+            <li><a href="Amenities.html">Amenities</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content" class="faculty-container">
+        <h2 class="section-title">Our Faculty Members</h2>
+
+        <div class="filter-section">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" id="facultySearch" placeholder="Search by name or department..."
+                    onkeyup="filterFaculty()">
             </div>
         </div>
-    </div>
 
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
+        <div class="faculty-grid" id="facultyGrid">
+            <!-- Principal -->
+            <div class="faculty-card" data-name="mahesh r reddy" data-dept="principal">
+                <div class="faculty-header">
+                    <img src="images/TATA.jpeg" alt="Mahesh R Reddy" class="faculty-img">
+                    <h3 class="faculty-name">Mahesh R Reddy</h3>
+                    <span class="faculty-designation">Principal</span>
+                </div>
+                <div class="faculty-info">
+                    <div class="faculty-details">
+                        <p><i class="fas fa-user-graduate"></i> Qulif: B.Tech, M.Tech</p>
+                        <p><i class="fas fa-calendar-alt"></i> DOB: 13-06-1980</p>
+                        <p><i class="fas fa-phone-alt"></i> 9379853899</p>
+                    </div>
+                </div>
+            </div>
 
-                        <div class="card-image">
-                            <img src="" alt="" class="card-img">
-                        </div>
+            <!-- HOD DTDM -->
+            <div class="faculty-card" data-name="jagadeeshakumar" data-dept="dtdm">
+                <div class="faculty-header">
+                    <img src="Faculty Images/jagadesh1.jpg" alt="Jagadeeshakumar" class="faculty-img">
+                    <h3 class="faculty-name">Jagadeeshakumar</h3>
+                    <span class="faculty-designation">HOD - DTDM</span>
+                </div>
+                <div class="faculty-info">
+                    <div class="faculty-details">
+                        <p><i class="fas fa-user-graduate"></i> Qulif: Diploma (DTDM), B.Tech</p>
+                        <p><i class="fas fa-calendar-alt"></i> DOB: 21-07-1997</p>
+                        <p><i class="fas fa-phone-alt"></i> 8970234857</p>
                     </div>
-                    <div class="card-content">
-                        <h2 class="name">Nikhil B M</h2>
+                </div>
+            </div>
+
+            <!-- HOD DAIML -->
+            <div class="faculty-card" data-name="nikhil b m" data-dept="daiml">
+                <div class="faculty-header">
+                    <img src="images/placeholder_avatar.png" alt="Nikhil B M" class="faculty-img">
+                    <h3 class="faculty-name">Nikhil B M</h3>
+                    <span class="faculty-designation">HOD - DAIML</span>
+                </div>
+                <div class="faculty-info">
+                    <div class="faculty-details">
+                        <p><i class="fas fa-user-graduate"></i> Qulif: BE</p>
+                        <p><i class="fas fa-calendar-alt"></i> DOB: 05-08-2000</p>
+                        <p><i class="fas fa-phone-alt"></i> 6363784679</p>
                     </div>
-                        <p class="description">HOD: DAIML </p>
-                        <p class="description">DOB:05-08-2000</p>
-                        <p class="description">Qulif:BE</p>
-                        <p class="description">Contact no:6363784679</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
+                </div>
+            </div>
+
+            <!-- HOD DMCH -->
+            <div class="faculty-card" data-name="nithesh n revankar" data-dept="dmch">
+                <div class="faculty-header">
+                    <img src="images/placeholder_avatar.png" alt="Nithesh N Revankar" class="faculty-img">
+                    <h3 class="faculty-name">Nithesh N Revankar</h3>
+                    <span class="faculty-designation">HOD - DMCH</span>
+                </div>
+                <div class="faculty-info">
+                    <div class="faculty-details">
+                        <p><i class="fas fa-user-graduate"></i> Qulif: BE, M.Tech</p>
+                        <p><i class="fas fa-calendar-alt"></i> DOB: 24-04-1999</p>
+                        <p><i class="fas fa-phone-alt"></i> 9738847101</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HOD DEEE -->
+            <div class="faculty-card" data-name="ravikiran s g" data-dept="deee">
+                <div class="faculty-header">
+                    <img src="images/placeholder_avatar.png" alt="Ravikiran S G" class="faculty-img">
+                    <h3 class="faculty-name">Ravikiran S G</h3>
+                    <span class="faculty-designation">HOD - DEEE</span>
+                </div>
+                <div class="faculty-info">
+                    <div class="faculty-details">
+                        <p><i class="fas fa-user-graduate"></i> Qulif: Diploma, B.E</p>
+                        <p><i class="fas fa-calendar-alt"></i> DOB: 21-04-1993</p>
+                        <p><i class="fas fa-phone-alt"></i> 9972745856</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lecturer Deekshith -->
+            <div class="faculty-card" data-name="deekshith d salian" data-dept="lecturer">
+                <div class="faculty-header">
+                    <img src="Faculty Images/deekshith.png" alt="Deekshith D Salian" class="faculty-img">
+                    <h3 class="faculty-name">Deekshith D Salian</h3>
+                    <span class="faculty-designation">Lecturer</span>
+                </div>
+                <div class="faculty-info">
+                    <div class="faculty-details">
+                        <p><i class="fas fa-user-graduate"></i> Qulif: BE, M.Tech</p>
+                        <p><i class="fas fa-calendar-alt"></i> DOB: 02-03-1996</p>
+                        <p><i class="fas fa-phone-alt"></i> 9632404957</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more faculty cards here -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About GTTC</h3>
+                <p>Government Tool Room and Training Centre (GTTC) was established in 1972 with the participation of the
+                    Karnataka State Government and the Government of Denmark.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Courses Details.html">Courses</a></li>
+                    <li><a href="ContactUs.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Sy. No 21 Chikkakalya Village, Thippsandra Hobli, Magadi Taluk,
+                    Ramanagara Dist - 562131</p>
+                <p style="margin-top: 10px;"><i class="fas fa-phone"></i> +91 9379853899</p>
+                <p style="margin-top: 10px;"><i class="fas fa-envelope"></i> gttcmagadi@gmail.com</p>
             </div>
         </div>
-    </div>
-
-
-    
-
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Nithesh N Revankar</h2>
-                    </div>
-                        <p class="description">HOD: DMCH </p>
-                        <p class="description">DOB:24-04-1999</p>
-                        <p class="description">Qulif:BE,M.Tech</p>
-                        <p class="description">Contact no:9738847101</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Government Tool Room and Training Centre, Magadi. All Rights Reserved.</p>
         </div>
-    </div>
+    </footer>
 
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Ravikiran S G</h2>
-                    </div>
-                        <p class="description">HOD: DEEE </p>
-                        <p class="description">DOB:21-04-1993</p>
-                        <p class="description">Qulif: Diploma,B.E</p>
-                        <p class="description">Contact no:9972745856</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Gurukiran K</h2>
-                    </div>
-                        <p class="description">Lecturer </p>
-                        <p class="description">DOB:03-07-1995</p>
-                        <p class="description">Qulif:BE,M.Tech </p>
-                        <p class="description">Contact no:94493694299</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="Faculty Images/deekshith.png" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Deekshith D Salian</h2>
-                    </div>
-                        <p class="description">Lecturer </p>
-                        <p class="description">DOB:02-03-1996</p>
-                        <p class="description">Qulif:BE,M.Tech</p>
-                        <p class="description">Contact no:9632404957</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Vidhyashree K N</h2>
-                    </div>
-                        <p class="description">Lecturer </p>
-                        <p class="description">DOB:21-10-1995</p>
-                        <p class="description">Qulif:BE in EEE</p>
-                        <p class="description">Contact no:9164622058</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="Faculty Images/Sanjay C C.jpg" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Sanjay C C</h2>
-                    </div>
-                        <p class="description">Lecturer </p>
-                        <p class="description">DOB:20-03-1997</p>
-                        <p class="description">Qulif: Diploma (DTDM)</p>
-                        <p class="description">Contact no:9071068018</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Srnivasa T</h2>
-                    </div>
-                        <p class="description">Librarian </p>
-                        <p class="description">DOB:13-04-1989</p>
-                        <p class="description">Qulif: MLISc</p>
-                        <p class="description">Contact no:9731639485</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Kotturappa H K</h2>
-                    </div>
-                        <p class="description">Lecturer </p>
-                        <p class="description">DOB:08-12-1972</p>
-                        <p class="description">Qulif: Diploma (DTDM)</p>
-                        <p class="description">Contact no:9844919878</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Veerabhadraiah M</h2>
-                    </div>
-                        <p class="description">Lecturer </p>
-                        <p class="description">DOB:05-05-1989</p>
-                        <p class="description">Qulif:MA,B.Ed</p>
-                        <p class="description">Contact:9964949365</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Nethravathi K R</h2>
-                    </div>
-                        <p class="description">Lecturer </p>
-                        <p class="description">DOB:25-06-1995</p>
-                        <p class="description">Qulif:MSc,B.Ed</p>
-                        <p class="description">Contact no:9110225836</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Renuka Bala Reddi</h2>
-                    </div>
-                        <p class="description">Lecturer </p>
-                        <p class="description">DOB:25-06-1986</p>
-                        <p class="description">Qulif:MSc,B.Ed</p>
-                        <p class="description">Contact no:9606562088</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-
-    
-    
-
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Shivakumar T G</h2>
-                    </div>
-                        <p class="description">Lecturer </p>
-                        <p class="description">DOB:29-07-1988</p>
-                        <p class="description">Qulif: Diploma (DTDM)</p>
-                        <p class="description">Contact no:9964625219</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="Faculty Images/rekh.jpg" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Rekha M B </h2>
-                    </div>
-                        <p class="description">Lecturer </p>
-                        <p class="description">DOB:24-03-2002</p>
-                        <p class="description">Qulif:BE                        </p>
-                        <p class="description">Contact no:9008236029</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-
-    
-    
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Rani N</h2>
-                    </div>
-                        <p class="description">Lecturer</p>
-                        <p class="description">DOB:23-06-1992                       </p>
-                        <p class="description">Qulif:BE</p>
-                        <p class="description">Contact no:7090560545</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-
-    
-    <div class="slide-containar ">
-        <div class="slide-content">
-            <div class="cord-wrapper  ">
-                <div class="card  ">
-                    <div class="image-content">
-                        <span class="overlay"></span>
-
-                        <div class="card-image">
-                            <img src="" alt="" class="card-img">
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h2 class="name">Venkatesh B G</h2>
-                    </div>
-                        <p class="description">Lecturer </p>
-                        <p class="description">DOB:09-07-1960</p>
-                        <p class="description">Qulif:ITI  </p>
-                        <p class="description">Contact no:9448608751</p>
-                        <div class="card-content">                           
-                        <button class="button">View More</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
-<!--Code is End here-->
-    
-<script>
-    function filterCards() {
-        const searchInput = document.getElementById('searchInput').value.toLowerCase();
-        const cards = document.querySelectorAll('.card');
-
-        cards.forEach(card => {
-            const name = card.querySelector('.name').textContent.toLowerCase();
-            if (name.includes(searchInput)) {
-                card.style.display = 'flex'; // Show the card
-            } else {
-                card.style.display = 'none'; // Hide the card
-            }
-        });
-    }
-</script>
+    <script src="../js/main.js"></script>
     <script>
-        var swiper = new Swiper(".slide-content", {
-    cssMode: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    pagination: {
-      el: ".swiper-pagination",
-    },
-    mousewheel: true,
-    keyboard: true,
-  });
+        function filterFaculty() {
+            const input = document.getElementById('facultySearch');
+            const filter = input.value.toLowerCase();
+            const grid = document.getElementById('facultyGrid');
+            const cards = grid.getElementsByClassName('faculty-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const name = cards[i].getAttribute('data-name');
+                const dept = cards[i].getAttribute('data-dept');
+                if (name.includes(filter) || dept.includes(filter)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
     </script>
 </body>
+
 </html>

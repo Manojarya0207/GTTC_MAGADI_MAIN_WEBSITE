@@ -2,129 +2,243 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Government Tool Room and Training Centre</title>
+    <title>Contact Us | GTTC Magadi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="website icon" type="png" href="../Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../css/style.css">
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f5fffa;
-            margin: 0;
-            padding: 20px;
+        .contact-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
-        
-        h1 {
-            text-align: center;
-            color: #2e8b57;
-        }
-        
-        .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-            background-color: #e0f7fa;
+
+        .contact-card {
+            background: white;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            margin-bottom: 30px;
         }
-        
-        table {
+
+        .contact-header {
+            background: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .contact-table {
             width: 100%;
-            margin-bottom: 20px;
             border-collapse: collapse;
         }
-        
-        th, td {
-            padding: 10px;
+
+        .contact-table th,
+        .contact-table td {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
             text-align: left;
-            border: 1px solid #b0e0e6;
         }
-        
-        form {
-            margin-top: 20px;
+
+        .contact-table th {
+            background: #f8f9fa;
+            width: 35%;
+            font-weight: 600;
+            color: #003366;
         }
-        
-        label {
+
+        .contact-table tr:last-child th,
+        .contact-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #003366;
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
             display: block;
-            margin-bottom: 8px;
-        }
-        
-        input, textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: 1px solid #b0e0e6;
-        }
-        
-        button {
-            background-color: #2e8b57;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-        }
-        
-        button:hover {
-            background-color: #3cb371;
-        }
-        
-        .message {
-            margin-top: 20px;
-            color: #2e8b57;
-            display: none;
+            width: 80px;
+            height: 4px;
+            background: #cc0000;
+            margin: 10px auto;
         }
     </style>
 </head>
 
 <body>
-    <h1>Contact Us</h1>
-    <div class="container">
-        <table>
-            <tr>
-                <th>Name of the Centre</th>
-                <td>Government Tool Room and Training Centre – Magadi</td>
-            </tr>
-            <tr>
-                <th>Year of Establishment</th>
-                <td>2023</td>
-            </tr>
-            <tr>
-                <th>Address</th>
-                <td>Sy. No 21 Chikkakalya Village, Thippsandra Hobli, Magadi Taluk, Ramanagara Dist - 562131</td>
-            </tr>
-            <tr>
-                <th>Contact Number</th>
-                <td>9379853899</td>
-            </tr>
-            <tr>
-                <th>Helpline Number</th>
-                <td>155267</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>gttcmagadi@gmail.com</td>
-            </tr>
-            <tr>
-                <th>Managing Director Name</th>
-                <td>Dr. Dinesh Kumar Y.K., I.F.S.</td>
-            </tr>
-            <tr>
-                <th>Name of the Principal</th>
-                <td>Mr. Mahesh Reddy</td>
-            </tr>
-            <tr>
-                <th>Name of the Vice Principal</th>
-                <td>Mr. Jagadeeshakumar</td>
-            </tr>
-            <tr>
-                <th>Mobile No.</th>
-                <td>9379853899</td>
-            </tr>
-        </table>
+    <!-- Top Accessibility Bar -->
+    <div class="top-bar">
+        <div class="left-links">
+            <a href="#">Government of Karnataka</a>
+            <a href="#">ಕನ್ನಡ</a>
+        </div>
+        <div class="right-controls">
+            <span class="btn-acc" id="font-decrease">A-</span>
+            <span class="btn-acc" id="font-reset">A</span>
+            <span class="btn-acc" id="font-increase">A+</span>
+            <a href="#main-content" style="margin-left: 10px;">Skip to Main Content</a>
+        </div>
+    </div>
 
-        
+    <!-- Brand Header -->
+    <header class="brand-header">
+        <div class="logo-container">
+            <img src="../Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png" alt="Karnataka Govt Logo">
+        </div>
+        <div class="title-container">
+            <h1>Government Tool Room and Training Centre</h1>
+            <h2>GTTC Magadi - STU 36</h2>
+        </div>
+        <div class="logo-container">
+            <img src="../Main_Page_Images/magdi_logo-removebg-preview - Copy - Copy.png" alt="GTTC Magadi Logo">
+            <img src="../Main_Page_Images/kaushalya-karnataka.png" alt="Kaushalya Karnataka">
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div id="nav-toggle" style="display: none; padding: 15px; cursor: pointer;">
+            <i class="fas fa-bars"></i> MENU
+        </div>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li>
+                <a href="#">Admission <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="Courses Details.html">Courses Details</a></li>
+                    <li><a href="Apply Now.html">Apply Now</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Academics <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="../Department_DTDM.html">DTDM</a></li>
+                    <li><a href="../Department_DMCH.html">DMCH</a></li>
+                    <li><a href="../Department_DEEE.html">DEEE</a></li>
+                    <li><a href="../Department_DAIML.html">DAIML</a></li>
+                    <li><a href="../examination.html">Examination</a></li>
+                </ul>
+            </li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Placements.html">Placements</a></li>
+            <li><a href="Amenities.html">Amenities</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <div class="contact-container">
+            <h2 class="section-title">Contact Us</h2>
+
+            <div class="contact-card">
+                <div class="contact-header">
+                    <h3>Centre Information</h3>
+                </div>
+                <table class="contact-table">
+                    <tr>
+                        <th>Center Name</th>
+                        <td>Government Tool Room and Training Centre – Magadi</td>
+                    </tr>
+                    <tr>
+                        <th>Established</th>
+                        <td>2023</td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>Sy. No 21 Chikkakalya Village, Thippsandra Hobli, Magadi Taluk, Ramanagara Dist - 562131
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Contact Number</th>
+                        <td>9379853899</td>
+                    </tr>
+                    <tr>
+                        <th>Helpline Number</th>
+                        <td>155267</td>
+                    </tr>
+                    <tr>
+                        <th>Email</th>
+                        <td>gttcmagadi@gmail.com</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-header">
+                    <h3>Key Officials</h3>
+                </div>
+                <table class="contact-table">
+                    <tr>
+                        <th>Managing Director</th>
+                        <td>Dr. Dinesh Kumar Y.K., I.F.S.</td>
+                    </tr>
+                    <tr>
+                        <th>Principal</th>
+                        <td>Mr. Mahesh Reddy</td>
+                    </tr>
+                    <tr>
+                        <th>Vice Principal</th>
+                        <td>Mr. Jagadeeshakumar</td>
+                    </tr>
+                    <tr>
+                        <th>Office Mobile No.</th>
+                        <td>9379853899</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About GTTC</h3>
+                <p>Government Tool Room and Training Centre (GTTC) was established in 1972 with the participation of the
+                    Karnataka State Government and the Government of Denmark.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Courses Details.html">Courses</a></li>
+                    <li><a href="ContactUs.html">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Sy. No 21 Chikkakalya Village, Thippsandra Hobli, Magadi Taluk,
+                    Ramanagara Dist - 562131</p>
+                <p style="margin-top: 10px;"><i class="fas fa-phone"></i> +91 9379853899</p>
+                <p style="margin-top: 10px;"><i class="fas fa-envelope"></i> gttcmagadi@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Government Tool Room and Training Centre, Magadi. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
 </body>
 
 </html>

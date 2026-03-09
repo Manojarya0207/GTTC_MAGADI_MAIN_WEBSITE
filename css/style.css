@@ -1,0 +1,213 @@
+/* Global Styles */
+:root {
+    --primary-color: #003366; /* Govt Blue */
+    --secondary-color: #FFCC00; /* Karnataka Yellow */
+    --accent-color: #CC0000; /* Karnataka Red */
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --white: #ffffff;
+    --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Accessibility Top Bar */
+.top-bar {
+    background-color: #eeeeee;
+    padding: 5px 20px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.top-bar .left-links a {
+    margin-right: 15px;
+    color: #666;
+}
+
+.top-bar .right-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.top-bar .right-controls .btn-acc {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 2px 5px;
+    border: 1px solid #ccc;
+    background: white;
+}
+
+/* Brand Header */
+.brand-header {
+    background-color: var(--white);
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.brand-header .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.brand-header .logo-container img {
+    height: 80px;
+}
+
+.brand-header .title-container {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.brand-header .title-container h1 {
+    font-size: 22px;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.brand-header .title-container h2 {
+    font-size: 18px;
+    color: var(--accent-color);
+}
+
+/* Navigation Bar */
+.main-nav {
+    background-color: var(--primary-color);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0 40px;
+}
+
+.main-nav ul li {
+    position: relative;
+}
+
+.main-nav ul li a {
+    display: block;
+    padding: 15px 20px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.main-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--secondary-color);
+}
+
+/* Dropdown */
+.main-nav ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--primary-color);
+    flex-direction: column;
+    padding: 0;
+    min-width: 200px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.main-nav ul li:hover > ul {
+    display: flex;
+}
+
+.main-nav ul li ul li a {
+    padding: 10px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Footer */
+.main-footer {
+    background-color: #1a1a1a;
+    color: #ccc;
+    padding: 40px 20px 20px;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section h3 {
+    color: var(--white);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a:hover {
+    color: var(--secondary-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .brand-header {
+        flex-direction: column;
+        padding: 20px;
+    }
+    
+    .brand-header .logo-container img {
+        height: 60px;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        display: none; /* Will be toggled by JS */
+    }
+    
+    .main-nav.active ul {
+        display: flex;
+    }
+}

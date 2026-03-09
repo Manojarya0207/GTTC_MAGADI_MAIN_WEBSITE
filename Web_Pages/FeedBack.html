@@ -1,308 +1,342 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College Feedback Form</title>
+    <title>Feedback | GTTC Magadi</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="website icon" type="png" href="../Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="../css/style.css">
+
     <style>
-        :root {
-            --primary-color: #3498db;
-            --success-color: #2ecc71;
-            --error-color: #e74c3c;
-            --border-color: #ddd;
-            --text-color: #333;
-            --light-bg: #f5f5f5;
+        .feedback-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
         }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--light-bg);
-            color: var(--text-color);
-            line-height: 1.6;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 600px;
-            margin: 30px auto;
+
+        .feedback-card {
             background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid #003366;
         }
-        
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: var(--primary-color);
-        }
-        
+
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
-        
-        label {
+
+        .form-group label {
             display: block;
-            margin-bottom: 8px;
             font-weight: 600;
+            color: #003366;
+            margin-bottom: 10px;
         }
-        
-        input, select, textarea {
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border 0.3s;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
         }
-        
-        input:focus, select:focus, textarea:focus {
-            border-color: var(--primary-color);
+
+        .form-group input:focus,
+        .form-group textarea:focus {
             outline: none;
+            border-color: #003366;
         }
-        
-        textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .rating-container {
+
+        .rating-stars {
             display: flex;
-            justify-content: space-between;
-            margin: 20px 0;
+            gap: 10px;
+            font-size: 1.5rem;
+            color: #ddd;
         }
-        
-        .rating-star {
-            display: none;
-        }
-        
-        .rating-label {
+
+        .rating-stars label {
             cursor: pointer;
-            font-size: 30px;
-            color: #ccc;
             transition: color 0.2s;
         }
-        
-        .rating-star:checked ~ .rating-label,
-        .rating-star:hover ~ .rating-label,
-        .rating-label:hover {
+
+        .rating-stars input:checked~label,
+        .rating-stars label:hover {
             color: #ffc107;
         }
-        
+
         .submit-btn {
-            background-color: var(--primary-color);
+            background: #003366;
             color: white;
             border: none;
-            padding: 12px 25px;
-            font-size: 16px;
+            padding: 15px 30px;
             border-radius: 5px;
+            font-weight: 700;
             cursor: pointer;
-            display: block;
             width: 100%;
-            transition: background-color 0.3s;
+            font-size: 1.1rem;
+            transition: background 0.3s;
         }
-        
+
         .submit-btn:hover {
-            background-color: #2980b9;
+            background: #cc0000;
         }
-        
-        .submit-btn:disabled {
-            background-color: #95a5a6;
-            cursor: not-allowed;
-        }
-        
+
         .alert {
             padding: 15px;
+            border-radius: 8px;
             margin-bottom: 20px;
-            border-radius: 5px;
             display: none;
         }
-        
+
         .alert-success {
-            background-color: #d4edda;
+            background: #d4edda;
             color: #155724;
             border: 1px solid #c3e6cb;
         }
-        
+
         .alert-error {
-            background-color: #f8d7da;
+            background: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
-        
-        .error-message {
-            color: var(--error-color);
-            font-size: 14px;
-            margin-top: 5px;
-            display: none;
-        }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>College Feedback Form</h1>
-        
-        <div id="successAlert" class="alert alert-success">
-            Thank you for your feedback! We appreciate your time.
+    <!-- Top Accessibility Bar -->
+    <div class="top-bar">
+        <div class="left-links">
+            <a href="#">Government of Karnataka</a>
+            <a href="#">ಕನ್ನಡ</a>
         </div>
-        
-        <div id="errorAlert" class="alert alert-error">
-            There was an error submitting your feedback. Please try again later.
+        <div class="right-controls">
+            <span class="btn-acc" id="font-decrease">A-</span>
+            <span class="btn-acc" id="font-reset">A</span>
+            <span class="btn-acc" id="font-increase">A+</span>
+            <a href="#main-content" style="margin-left: 10px;">Skip to Main Content</a>
         </div>
-        
-        <form id="feedbackForm">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" required>
-                <div id="nameError" class="error-message">Please enter your name</div>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required>
-                <div id="emailError" class="error-message">Please enter a valid email address</div>
-            </div>
-            
-            <div class="form-group">
-                <label>Rating</label>
-                <div class="rating-container">
-                    <input type="radio" id="star5" name="rating" value="5" class="rating-star" checked>
-                    <label for="star5" class="rating-label">★</label>
-                    
-                    <input type="radio" id="star4" name="rating" value="4" class="rating-star">
-                    <label for="star4" class="rating-label">★</label>
-                    
-                    <input type="radio" id="star3" name="rating" value="3" class="rating-star">
-                    <label for="star3" class="rating-label">★</label>
-                    
-                    <input type="radio" id="star2" name="rating" value="2" class="rating-star">
-                    <label for="star2" class="rating-label">★</label>
-                    
-                    <input type="radio" id="star1" name="rating" value="1" class="rating-star">
-                    <label for="star1" class="rating-label">★</label>
-                </div>
-            </div>
-            
-            <div class="form-group">
-                <label for="feedback">Your Feedback</label>
-                <textarea id="feedback" name="feedback" required></textarea>
-                <div id="feedbackError" class="error-message">Please enter your feedback</div>
-            </div>
-            
-            <button type="submit" id="submitBtn" class="submit-btn">Submit Feedback</button>
-        </form>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('feedbackForm');
-            const submitBtn = document.getElementById('submitBtn');
-            const successAlert = document.getElementById('successAlert');
-            const errorAlert = document.getElementById('errorAlert');
-            
-            // Form validation
-            function validateForm() {
-                let isValid = true;
-                
-                // Validate name
-                const name = document.getElementById('name');
-                const nameError = document.getElementById('nameError');
-                if (name.value.trim() === '') {
-                    nameError.style.display = 'block';
-                    isValid = false;
-                } else {
-                    nameError.style.display = 'none';
-                }
-                
-                // Validate email
-                const email = document.getElementById('email');
-                const emailError = document.getElementById('emailError');
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(email.value)) {
-                    emailError.style.display = 'block';
-                    isValid = false;
-                } else {
-                    emailError.style.display = 'none';
-                }
-                
-                // Validate feedback
-                const feedback = document.getElementById('feedback');
-                const feedbackError = document.getElementById('feedbackError');
-                if (feedback.value.trim() === '') {
-                    feedbackError.style.display = 'block';
-                    isValid = false;
-                } else {
-                    feedbackError.style.display = 'none';
-                }
-                
-                return isValid;
-            }
-            
-            // Form submission
-            form.addEventListener('submit', async function(e) {
-                e.preventDefault();
-                
-                if (!validateForm()) {
-                    return;
-                }
-                
-                submitBtn.disabled = true;
-                submitBtn.textContent = 'Sending...';
-                
-                try {
-                    // Using FormSubmit.co to send the email
-                    const formData = new FormData(form);
-                    formData.append('_replyto', formData.get('email'));
-                    formData.append('_subject', 'New College Feedback');
-                    formData.append('_template', 'table');
-                    
-                    const response = await fetch('https://formsubmit.co/ajax/manojarya0207@gmail.com', {
-                        method: 'POST',
-                        body: formData
-                    });
-                    
-                    const result = await response.json();
-                    
-                    if (result.success) {
-                        // Show success message
-                        successAlert.style.display = 'block';
-                        errorAlert.style.display = 'none';
-                        form.reset();
+    <!-- Brand Header -->
+    <header class="brand-header">
+        <div class="logo-container">
+            <img src="../Main_Page_Images/karnataka_logo-removebg-preview - Copy (2).png" alt="Karnataka Govt Logo">
+        </div>
+        <div class="title-container">
+            <h1>Government Tool Room and Training Centre</h1>
+            <h2>GTTC Magadi - STU 36</h2>
+        </div>
+        <div class="logo-container">
+            <img src="../Main_Page_Images/magdi_logo-removebg-preview - Copy - Copy.png" alt="GTTC Magadi Logo">
+            <img src="../Main_Page_Images/kaushalya-karnataka.png" alt="Kaushalya Karnataka">
+        </div>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav class="main-nav">
+        <div id="nav-toggle" style="display: none; padding: 15px; cursor: pointer;">
+            <i class="fas fa-bars"></i> MENU
+        </div>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="About.html">About Us</a></li>
+            <li>
+                <a href="#">Admission <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="Courses Details.html">Courses Details</a></li>
+                    <li><a href="Apply Now.html">Apply Now</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Academics <i class="fas fa-chevron-down" style="font-size: 10px;"></i></a>
+                <ul>
+                    <li><a href="../Department_DTDM.html">DTDM</a></li>
+                    <li><a href="../Department_DMCH.html">DMCH</a></li>
+                    <li><a href="../Department_DEEE.html">DEEE</a></li>
+                    <li><a href="../Department_DAIML.html">DAIML</a></li>
+                    <li><a href="../examination.html">Examination</a></li>
+                </ul>
+            </li>
+            <li><a href="Gallery.html">Gallery</a></li>
+            <li><a href="Placements.html">Placements</a></li>
+            <li><a href="Amenities.html">Amenities</a></li>
+            <li><a href="ContactUs.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content" class="feedback-container">
+        <div class="feedback-card">
+            <h2 class="section-title">College Feedback Form</h2>
+
+            <div id="successAlert" class="alert alert-success">
+                Thank you for your feedback! We appreciate your time.
+            </div>
+
+            <div id="errorAlert" class="alert alert-error">
+                There was an error submitting your feedback. Please try again later.
+            </div>
+
+            <form id="feedbackForm">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                    <div id="emailError" class="error-message">Please enter a valid email address</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Rating</label>
+                    <div class="rating-container">
+                        <input type="radio" id="star5" name="rating" value="5" class="rating-star" checked>
+                        <label for="star5" class="rating-label">★</label>
+
+                        <input type="radio" id="star4" name="rating" value="4" class="rating-star">
+                        <label for="star4" class="rating-label">★</label>
+
+                        <input type="radio" id="star3" name="rating" value="3" class="rating-star">
+                        <label for="star3" class="rating-label">★</label>
+
+                        <input type="radio" id="star2" name="rating" value="2" class="rating-star">
+                        <label for="star2" class="rating-label">★</label>
+
+                        <input type="radio" id="star1" name="rating" value="1" class="rating-star">
+                        <label for="star1" class="rating-label">★</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback">Your Feedback</label>
+                    <textarea id="feedback" name="feedback" required></textarea>
+                    <div id="feedbackError" class="error-message">Please enter your feedback</div>
+                </div>
+
+                <button type="submit" id="submitBtn" class="submit-btn">Submit Feedback</button>
+            </form>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const form = document.getElementById('feedbackForm');
+                const submitBtn = document.getElementById('submitBtn');
+                const successAlert = document.getElementById('successAlert');
+                const errorAlert = document.getElementById('errorAlert');
+
+                // Form validation
+                function validateForm() {
+                    let isValid = true;
+
+                    // Validate name
+                    const name = document.getElementById('name');
+                    const nameError = document.getElementById('nameError');
+                    if (name.value.trim() === '') {
+                        nameError.style.display = 'block';
+                        isValid = false;
                     } else {
-                        throw new Error('Submission failed');
+                        nameError.style.display = 'none';
                     }
-                } catch (error) {
-                    console.error('Error:', error);
-                    errorAlert.style.display = 'block';
-                    successAlert.style.display = 'none';
-                } finally {
-                    submitBtn.disabled = false;
-                    submitBtn.textContent = 'Submit Feedback';
-                    
-                    // Scroll to top to show message
-                    window.scrollTo(0, 0);
+
+                    // Validate email
+                    const email = document.getElementById('email');
+                    const emailError = document.getElementById('emailError');
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(email.value)) {
+                        emailError.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        emailError.style.display = 'none';
+                    }
+
+                    // Validate feedback
+                    const feedback = document.getElementById('feedback');
+                    const feedbackError = document.getElementById('feedbackError');
+                    if (feedback.value.trim() === '') {
+                        feedbackError.style.display = 'block';
+                        isValid = false;
+                    } else {
+                        feedbackError.style.display = 'none';
+                    }
+
+                    return isValid;
                 }
+
+                // Form submission
+                form.addEventListener('submit', async function (e) {
+                    e.preventDefault();
+
+                    if (!validateForm()) {
+                        return;
+                    }
+
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Sending...';
+
+                    try {
+                        // Using FormSubmit.co to send the email
+                        const formData = new FormData(form);
+                        formData.append('_replyto', formData.get('email'));
+                        formData.append('_subject', 'New College Feedback');
+                        formData.append('_template', 'table');
+
+                        const response = await fetch('https://formsubmit.co/ajax/gttcmagadi@gmail.com', {
+                            method: 'POST',
+                            body: formData
+                        });
+
+                        const result = await response.json();
+
+                        if (result.success) {
+                            // Show success message
+                            successAlert.style.display = 'block';
+                            errorAlert.style.display = 'none';
+                            form.reset();
+                        } else {
+                            throw new Error('Submission failed');
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                        errorAlert.style.display = 'block';
+                        successAlert.style.display = 'none';
+                    } finally {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Submit Feedback';
+
+                        // Scroll to top to show message
+                        window.scrollTo(0, 0);
+                    }
+                });
+
+                // Real-time validation
+                document.getElementById('name').addEventListener('input', function () {
+                    document.getElementById('nameError').style.display = 'none';
+                });
+
+                document.getElementById('email').addEventListener('input', function () {
+                    document.getElementById('emailError').style.display = 'none';
+                });
+
+                document.getElementById('feedback').addEventListener('input', function () {
+                    document.getElementById('feedbackError').style.display = 'none';
+                });
             });
-            
-            // Real-time validation
-            document.getElementById('name').addEventListener('input', function() {
-                document.getElementById('nameError').style.display = 'none';
-            });
-            
-            document.getElementById('email').addEventListener('input', function() {
-                document.getElementById('emailError').style.display = 'none';
-            });
-            
-            document.getElementById('feedback').addEventListener('input', function() {
-                document.getElementById('feedbackError').style.display = 'none';
-            });
-        });
-    </script>
+        </script>
 </body>
+
 </html>
