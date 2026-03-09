@@ -78,7 +78,7 @@
             <li><a href="Web_Pages/Placements.html">Placements</a></li>
             <li><a href="Web_Pages/Amenities.html">Amenities</a></li>
             <li><a href="Web_Pages/ContactUs.html">Contact Us</a></li>
-             <li><a href="Web_Pages/ContactUs.html">Others</a></li>
+            <li><a href="Web_Pages/ContactUs.html">Others</a></li>
         </ul>
     </nav>
 
@@ -103,153 +103,111 @@
 
 
 
-
-
         <style>
-            .column {
-                float: left;
-                padding: 10px;
+            .video-section {
+                position: relative;
+                background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('gttc1.jpeg');
+                background-size: cover;
+                background-position: center;
+                background-attachment: fixed;
+                padding: 60px 20px;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
-            .column h2 {
+            .video-section-title {
+                color: var(--secondary-color);
                 text-align: center;
-                color: red;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 35px;
+                font-weight: 600;
+                margin-bottom: 40px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
             }
 
-            /* Left and right column */
-            .column.side {
-                width: 25%;
-                color: aquamarine;
+            .video-grid {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                max-width: 1200px;
+                width: 100%;
             }
 
-            .column.side h2 {
+            .video-side-text {
+                flex: 1;
+                font-size: 22px;
+                font-weight: 500;
+                text-transform: uppercase;
+                line-height: 1.4;
                 text-align: center;
                 color: #fff;
             }
 
-            /* Middle column */
-            .column.middle {
-                width: 50%;
+            .video-middle {
+                flex: 1.5;
+                display: flex;
+                flex-direction: column;
                 align-items: center;
             }
 
-            .column.middle h2 {
-                text-align: center;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                font-size: 35px;
-                font-weight: 500;
+            .video-middle video {
+                width: 100%;
+                max-width: 500px;
+                border-radius: 12px;
+                box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+                border: 2px solid rgba(255, 255, 255, 0.1);
             }
 
-            /* Clear floats after the columns */
-            .row::after {
-                content: "";
-                display: table;
-                clear: both;
-            }
-
-            /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
-            @media screen and (max-width: 768px) {
-
-                .column.side,
-                .column.middle {
-                    width: 100%;
+            @media (max-width: 992px) {
+                .video-grid {
+                    flex-direction: column;
+                    gap: 30px;
                 }
 
-                .column.middle h2 {
+                .video-side-text {
+                    font-size: 18px;
+                }
+
+                .video-section-title {
                     font-size: 28px;
                 }
-
-                .column.side h2 {
-                    font-size: 20px;
-                }
-
-                video {
-                    width: 100%;
-                    height: auto;
-                }
             }
 
-            @media screen and (max-width: 480px) {
-                .column.middle h2 {
+            @media (max-width: 480px) {
+                .video-section-title {
                     font-size: 24px;
                 }
 
-                .column.side h2 {
-                    font-size: 20px;
-                    padding-top: 0px;
+                .video-side-text {
+                    font-size: 16px;
                 }
-
-                video {
-                    width: 100%;
-                    height: auto;
-                }
-            }
-
-            /* Style for the gap extending the row background */
-            .gap-with-bg {
-                height: 200px;
-                background-image: url('gttc1.jpeg');
-                background-size: cover;
-                background-position: center;
-                background-repeat: no-repeat;
-                margin: 20px 0;
             }
         </style>
 
-        <div class="row" style="background-image: url('gttc1.jpeg'); min-height: 300px; padding-bottom: 100px;">
-            <div class="column side">
-                <br>
+        <section class="video-section">
+            <h2 class="video-section-title">SHORT CLIP ON GTTC MAGADI</h2>
 
-                <br>
-                <br>
+            <div class="video-grid">
+                <div class="video-side-text">
+                    A GOOD EDUCATION IS A FOUNDATION FOR A BETTER FUTURE.
+                </div>
 
-                <br>
-                <br>
-                <br>
-                <br>
-                <h2>A GOOD EDUCATION IS A FOUNDATION FOR A BETTER FUTURE.</h2>
+                <div class="video-middle">
+                    <video controls>
+                        <source src="COLLAGE CLIP_1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <div class="video-side-text">
+                    THE FUTURE BELONGS TO THOSE WHO LEARN MORE SKILLS AND COMBINE THEM IN CREATIVE WAYS.
+                </div>
             </div>
-
-            <div class="column middle">
-                <h2>SHORT CLIP ON GTTC MAGADI</h2>
-
-                <br>
-                <video width="450px" height="300px" controls>
-                    <source src="COLLAGE CLIP_1.mp4" type="video/mp4">
-                </video>
-            </div>
-            <br>
-            <br>
-            <br>
-
-
-
-
-
-            <div class="column side">
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-
-                <br>
-
-                <h2>THE FUTURE BELONGS TO THOSE WHO LEARN MORE SKILLS AND COMBINE THEM IN CREATIVE WAYS.</h2>
-
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-
-        </div>
+        </section>
 
         <style>
             /* Footer Styles */
@@ -726,14 +684,16 @@
                 <div class="footer-section social">
                     <h2>Follow Us</h2>
                     <div class="social-icons">
-                        <a href="https://www.facebook.com/share/1NJKVhcLfK/" target="_blank" class="social-link" data-name="Facebook">
+                        <a href="https://www.facebook.com/share/1NJKVhcLfK/" target="_blank" class="social-link"
+                            data-name="Facebook">
                             <i class="fab fa-facebook"></i>
                         </a>
-                      
-                        <a href="https://www.instagram.com/gttc_magadi?utm_source=qr&igsh=ZndxcnFkbTF0ZWNz" target="_blank" class="social-link" data-name="Instagram">
+
+                        <a href="https://www.instagram.com/gttc_magadi?utm_source=qr&igsh=ZndxcnFkbTF0ZWNz"
+                            target="_blank" class="social-link" data-name="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                       
+
                         <a href="https://www.youtube.com" target="_blank" class="social-link" data-name="YouTube">
                             <i class="fab fa-youtube"></i>
                         </a>
@@ -758,7 +718,7 @@
             </div>
 
         </footer>
-       
+
 
         <!-- Pamphlet (Pop-up) -->
         <div class="pamphlet" id="pamphlet"
