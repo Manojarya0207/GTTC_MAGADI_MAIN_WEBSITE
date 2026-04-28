@@ -49,5 +49,5 @@ For any inquiries, visit the **Contact Us** page or reach out via the provided c
 
 ---
 
-*Developed by [Yashwant Rangrej](https://github.com/Yashwant-Rangrej)
+*Developed by [Yashwant Rangrej, ](https://github.com/Yashwant-Rangrej)
 [Manoj S R](https://github.com/Manojarya0207)*
