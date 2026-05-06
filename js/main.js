@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btnIncrease.addEventListener('click', () => {
             fontSize += 10;
             document.body.style.fontSize = `${fontSize}%`;
-        });
+        });    
     }
 
     if (btnDecrease) {
